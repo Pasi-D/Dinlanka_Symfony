@@ -1,39 +1,18 @@
 # Project language
 language: php
 
+php:
+  - 5.3.3
+  - 5.3
+  - 5.4
+
 # Allows use container-based infrastructure
 sudo: false
-
-# Start mysql service
-services:
-  - mysql
 
 # Cache composer packages so "composer install" is faster
 cache:
   directories:
     - $HOME/.composer/cache/files
-
-# Matrix to test in every php version
-matrix:
-  # Fast finish allows to set the build as "finished" even if the "allow_failures" matrix elements are not finished yet.
-  fast_finish: true
-  include:
-    - php: 7.0
-      env: SYMFONY_VERSION=3.4.*
-    - php: 7.1
-      env: SYMFONY_VERSION=3.4.*
-    - php: 7.2
-      env: SYMFONY_VERSION=3.4.*
-    - php: nightly
-      env: SYMFONY_VERSION=3.4.*
-  allow_failures:
-    - php: nightly
-    - env: DEPENDENCIES=beta
-    - env: DEPENDENCIES=low
-
-# Define an environment variable
-env:
-  - SYMFONY_VERSION="3.0.*" DB=mysql
 
 # Update composer
 before-install:
@@ -44,6 +23,8 @@ before-install:
 install:
   - composer install
   - cp app/config/parameters.yml.dist app/config/parameters.yml  
+
+before_script: composer install -n
 
 # Run script
 script:
