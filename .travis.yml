@@ -9,6 +9,10 @@ php:
 # Allows use container-based infrastructure
 sudo: false
 
+# Define an environment variable
+env:
+  - SYMFONY_VERSION="3.0.*"
+
 # Cache composer packages so "composer install" is faster
 cache:
   directories:
