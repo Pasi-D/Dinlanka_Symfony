@@ -48,6 +48,7 @@ Author: Cloud Software Solution Ltd.
     line-height             : 1;
     font-weight             : bold;
     color                   : #ffffff;
+    background-color        : #A9A9A9;    
     text-transform          : capitalize;
     margin                  : 30px 0 20px;
     -webkit-animation-delay : 150ms;
@@ -57,6 +58,7 @@ Author: Cloud Software Solution Ltd.
 .hero-slide .carousel-caption .lead {
     font-size               : 24px;
     color                   : #ffffff;
+    background-color        : #A9A9A9;    
     font-weight             : normal;
     margin-bottom           : 30px;
     -webkit-animation-delay : 200ms;
