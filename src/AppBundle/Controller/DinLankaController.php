@@ -106,4 +106,24 @@ class DinLankaController extends Controller
 
         return $this->render('dinlanka/supply-chain-manegment.html.twig');
     }
+
+    /**
+     * @Route("/dinlanka/freezer-transportation-solutions", name="freezer transportation & solutions")
+     */
+    public function freezer_transportationAction(Request $request)
+    {
+
+        return $this->render('dinlanka/freezer-transportation-solutions.html.twig');
+    }
+
+    /**
+     * @Route("/dinlanka/entrepot-trade", name="entrepot trade")
+     */
+    public function entrepot_tradeAction(Request $request)
+    {
+
+        return $this->render('dinlanka/entrepot-trade.html.twig');
+    }    
+
+      
 }
