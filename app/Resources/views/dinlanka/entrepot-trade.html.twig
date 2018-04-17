@@ -1,0 +1,141 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Entrepot-Trade | www.dinlanka.com | Service Beyond Borders {% endblock %}
+
+{% block body %}
+    <section class="page-title-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header-wrap">
+                        <div class="page-header">
+                            <h1>ENTREPOT TRADE</h1>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li><a href="/dinlanka">Home</a></li>
+                            <li class="active">ENTREPOT TRADE</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Single-Service-Start -->
+    <section class="single-service-contents">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-5 col-xs-12">
+                    <div class="service-sidebar sidebar-wrapper">
+
+                        <div class="widget">
+                            <h2 class="widget-title">Services</h2>
+                            <ul class="service-list">
+                                <li><a href="/dinlanka/ior-eor-services" class="icon-air">IOR EOR Services</a></li>
+                                <li><a href="/dinlanka/ocean-freight" class="icon-marine">Ocean Freight</a></li>
+                                <li><a href="/dinlanka/air-freight" class="icon-store">Air Freight</a></li>
+                                <li><a href="/sea-air-service" class="icon-shipping">Sea-Air Service</a></li>
+                                <li><a href="/dinlanka/dinlanka-cargo-insurance" class="icon-transportation">Cargo Insurance</a></li>
+                                <li><a href="/dinlanka/new-shipping-containers-for-sale" class="icon-trucking">New &amp; Used Containers</a></li>
+                                <li class="active"><a href="/dinlanka/supply-chain-manegment" class="icon-trucking">Supply Chain Management</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="widget">
+                            <h2 class="widget-title">Office Hours</h2>
+                            <div class="textwidget">
+                                <p>Monday -
+                                    Friday: 9:00 - 18:00<br>
+                                    Saturday: 9:00 - 2:00<br>
+                                    Holidays: 9:00 - 12:00</p>
+                            </div>
+                        </div><!-- /.widget -->
+                    </div><!-- /.sidebar-wrapper -->
+                </div><!-- /.col -->
+                <div class="col-md-9 col-sm-7 col-xs-12">
+                    <img class="img-alignnone" src="{{ asset('img/') }}" alt="image">
+                    <p>We are registered under Sri Lanka Customs and Sri Lanka Port Authority to facilitate the entrepot trade in Sri Lanka, So we can act as Exporter/ Importer.This will help cutomers to get the trade agreement benefits, when importing goods between Sri Lanka & other countries.</p>
+                    <p>Customers do not need to worry to find the companies/ registered companies in Sri Lanka as we are offering total solution under one roof.</p>
+                    <p>This will help 3rd party exporters to hide the real exporter/ manufacture from the consignee.We can add value added to its product by relabeling ,repacking etc.</p>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <!-- Single-Service-End-->
+
+
+    <!-- cta start -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <a data-toggle="modal" data-target="#quoteModal" href="#" class="btn btn-primary quote-btn">Get a Quote</a>
+
+            <!-- Modal -->
+            <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="quoteModalLabel">Request a rate for the shipping of your goods.</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="contactForm" action="sendemail.php" method="POST">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input id="name" name="name" type="text" class="form-control"  required="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="company">Company Name</label>
+                                            <input id="company" name="company" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input id="phone" name="phone" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input id="email" name="email" type="email" class="form-control" required="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="city">City Name</label>
+                                            <input id="city" name="city" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="subject">Subject</label>
+                                            <input id="subject" name="subject" type="text" class="form-control" required="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-area">
+                                    <label for="message">Your Message</label>
+                                    <textarea id="message" name="message" class="form-control" rows="6" required="" placeholder=""></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container -->
+    </section><!-- /.cta-section -->
+    <!-- cta end -->
+{% endblock %}
