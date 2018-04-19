@@ -22,17 +22,18 @@ public function urlProvider()
 {
     return array(
         array('/'),
-        array('/dinlanka'),
-        array('/dinlanka/about'),
-        array('/dinlanka/contact'),
-        array('/dinlanka/dinlanka-cargo-insurance'),
-        array('/dinlanka/air-freight'),
-        array('/dinlanka/ior-eor-services'),
-        array('/dinlanka/new-shipping-containers-for-sale'),
-        array('/dinlanka/ocean-freight'),
-        array('/dinlanka/sea-air-service'),
-        array('/dinlanka/service'),
-        array('/dinlanka/supply-chain-manegment')
+        array('/about'),
+        array('/contact'),
+        array('/dinlanka-cargo-insurance'),
+        array('/air-freight'),
+        array('/ior-eor-services'),
+        array('/new-shipping-containers-for-sale'),
+        array('/ocean-freight'),
+        array('/sea-air-service'),
+        array('/service'),
+        array('/supply-chain-manegment'),
+        array('/freezer-transportation-solutions'),
+        array('/entrepot-trade')
 
     );
 }
