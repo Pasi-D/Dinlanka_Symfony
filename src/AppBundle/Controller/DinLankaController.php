@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DinLankaController extends Controller
 {
     /**
-     * @Route("/dinlanka", name="indexpage")
+     * @Route("/", name="indexpage")
      */
     public function indexAction(Request $request)
     {
@@ -18,7 +18,7 @@ class DinLankaController extends Controller
     }
 
     /**
-     * @Route("/dinlanka/about", name="about")
+     * @Route("/about", name="about")
      */
     public function aboutAction(Request $request)
     {
@@ -27,7 +27,7 @@ class DinLankaController extends Controller
     }
 
     /**
-     * @Route("/dinlanka/contact", name="contact")
+     * @Route("/contact", name="contact")
      */
     public function contactAction(Request $request)
     {
@@ -36,7 +36,7 @@ class DinLankaController extends Controller
     }
 
     /**
-     * @Route("/dinlanka/dinlanka-cargo-insurance", name="cargo_insurance")
+     * @Route("/dinlanka-cargo-insurance", name="cargo_insurance")
      */
     public function cargoAction(Request $request)
     {
@@ -45,7 +45,7 @@ class DinLankaController extends Controller
     } 
 
     /**
-     * @Route("/dinlanka/air-freight", name="air_freight")
+     * @Route("/air-freight", name="air_freight")
      */
     public function airfreightAction(Request $request)
     {
@@ -54,7 +54,7 @@ class DinLankaController extends Controller
     }  
 
     /**
-     * @Route("/dinlanka/ior-eor-services", name="ior & eor")
+     * @Route("/ior-eor-services", name="ior & eor")
      */
     public function ioreorAction(Request $request)
     {
@@ -63,7 +63,7 @@ class DinLankaController extends Controller
     }  
 
     /**
-     * @Route("/dinlanka/new-shipping-containers-for-sale", name="containers for sale")
+     * @Route("/new-shipping-containers-for-sale", name="containers for sale")
      */
     public function containers_for_saleAction(Request $request)
     {
@@ -72,7 +72,7 @@ class DinLankaController extends Controller
     }  
 
     /**
-     * @Route("/dinlanka/ocean-freight", name="ocean freight")
+     * @Route("/ocean-freight", name="ocean freight")
      */
     public function oceanfreightAction(Request $request)
     {
@@ -81,7 +81,7 @@ class DinLankaController extends Controller
     } 
 
     /**
-     * @Route("/dinlanka/sea-air-service", name="sea-air-service")
+     * @Route("/sea-air-service", name="sea-air-service")
      */
     public function sea_air_servicesAction(Request $request)
     {
@@ -90,7 +90,7 @@ class DinLankaController extends Controller
     }    
 
     /**
-     * @Route("/dinlanka/service", name="service")
+     * @Route("/service", name="service")
      */
     public function serviceAction(Request $request)
     {
@@ -99,11 +99,26 @@ class DinLankaController extends Controller
     }            
 
     /**
-     * @Route("/dinlanka/supply-chain-manegment", name="supply-chain-manegment")
+     * @Route("/supply-chain-manegment", name="supply-chain-manegment")
      */
     public function supply_chain_managementAction(Request $request)
     {
 
         return $this->render('dinlanka/supply-chain-manegment.html.twig');
+    }
+
+    /**
+     * @Route("/freezer-transportation-solutions", name="freezer transportation & solutions")
+     */
+    public function freezer_transportationAction(Request $request)
+    {
+        return $this->render('dinlanka/freezer-transportation-solutions.html.twig');
+    }
+    /**
+     * @Route("/entrepot-trade", name="entrepot trade")
+     */
+    public function entrepot_tradeAction(Request $request)
+    {
+        return $this->render('dinlanka/entrepot-trade.html.twig');
     }
 }

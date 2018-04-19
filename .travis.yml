@@ -1,18 +1,6 @@
 # Project language
 language: php
 
-# Allows use container-based infrastructure
-sudo: false
-
-# Start mysql service
-services:
-  - mysql
-
-# Cache composer packages so "composer install" is faster
-cache:
-  directories:
-    - $HOME/.composer/cache/files
-
 # Matrix to test in every php version
 matrix:
   # Fast finish allows to set the build as "finished" even if the "allow_failures" matrix elements are not finished yet.
@@ -23,17 +11,15 @@ matrix:
     - php: 7.1
       env: SYMFONY_VERSION=3.4.*
     - php: 7.2
-      env: SYMFONY_VERSION=3.4.*
-    - php: nightly
-      env: SYMFONY_VERSION=3.4.*
-  allow_failures:
-    - php: nightly
-    - env: DEPENDENCIES=beta
-    - env: DEPENDENCIES=low
+      env: SYMFONY_VERSION=3.4.*    
 
-# Define an environment variable
-env:
-  - SYMFONY_VERSION="3.0.*" DB=mysql
+# Allows use container-based infrastructure
+sudo: false
+
+# Cache composer packages so "composer install" is faster
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 
 # Update composer
 before-install:
@@ -45,6 +31,16 @@ install:
   - composer install
   - cp app/config/parameters.yml.dist app/config/parameters.yml  
 
+before_script: composer install -n
+
 # Run script
 script:
   - phpunit
+
+deploy:
+  provider: azure_web_apps
+  username: $AZURE_WA_USERNAME
+  password: $AZURE_WA_PASSWORD
+  site: $AZURE_WA_SITE
+  on: 
+    branch: master

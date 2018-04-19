@@ -3,6 +3,7 @@ Template Name: Transport
 Description: HTML5 / CSS3 Multi Page
 Version: 1.0
 Author: Cloud Software Solution Ltd.
+test
 */
 
 /* ------------------------------------------------------------------
@@ -29,7 +30,7 @@ NAVIGATION
 }
 
 .navbar-default .navbar-nav>li>a {
-  color: #7b8a97;
+  color: #000000;
 }
 
 .navbar-nav>li>a {

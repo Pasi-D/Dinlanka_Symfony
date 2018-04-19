@@ -3,6 +3,7 @@ Template Name: Transport
 Description: HTML5 / CSS3 Multi Page
 Version: 1.0
 Author: Cloud Software Solution Ltd.
+test
 */
 
 
@@ -43,11 +44,15 @@ Author: Cloud Software Solution Ltd.
     animation-delay         : 100ms;
     }
 
+/*
+Background Color of Headers
+*/
 .hero-slide .carousel-caption h1 {
     font-size               : 56px;
     line-height             : 1;
     font-weight             : bold;
-    color                   : #ffffff;
+    color                   : #000000;
+    background-color        : rgba(255, 255, 255, 0.7);
     text-transform          : capitalize;
     margin                  : 30px 0 20px;
     -webkit-animation-delay : 150ms;
@@ -56,7 +61,8 @@ Author: Cloud Software Solution Ltd.
 
 .hero-slide .carousel-caption .lead {
     font-size               : 24px;
-    color                   : #ffffff;
+    color                   : #000000;
+    background-color        : rgba(255, 255, 255, 0.6);
     font-weight             : normal;
     margin-bottom           : 30px;
     -webkit-animation-delay : 200ms;
@@ -391,7 +397,7 @@ Whyus Setion
 
   .content-text {
     text-align: left;
-  };
+  }
 }
 
 
@@ -486,7 +492,7 @@ TESTIMONIAL SECTION
 @media screen and (min-width: 768px) {
   #testimonial-carousel .carousel-indicators {
     bottom: -3px;
-  };
+  }
 }
 
 #testimonial-carousel .carousel-indicators li {
