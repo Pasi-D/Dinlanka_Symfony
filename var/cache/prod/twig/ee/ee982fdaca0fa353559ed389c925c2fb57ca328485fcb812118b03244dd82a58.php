@@ -142,6 +142,6 @@ class __TwigTemplate_98a93652dc248c243a816f69b31f98ae51ec4603a0dff38487146c27a39
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "default/index.html.twig", "C:\\xampp\\htdocs\\Dinlanka_Symfony\\app\\Resources\\views\\default\\index.html.twig");
+        return new Twig_Source("", "default/index.html.twig", "F:\\WebDevelopment\\Dinlanka Project\\Symfony Project\\dinlanka_symfony\\app\\Resources\\views\\default\\index.html.twig");
     }
 }
