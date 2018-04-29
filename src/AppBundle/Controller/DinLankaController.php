@@ -121,4 +121,13 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/entrepot-trade.html.twig');
     }
+
+    /**
+     * @Route("/track-request", name="Tracking Request")
+     */
+    public function tracking_requestAction(Request $request)
+    {
+
+        return $this->render('dinlanka/track-order-request.html.twig');
+    }
 }
