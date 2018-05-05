@@ -2,13 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
- * Contact
+ * contact
  *
  * @ORM\Table(name="contact")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\contactRepository")
  */
 class Contact
 {
@@ -22,15 +25,21 @@ class Contact
     private $id;
 
     /**
-     * @var string
-     *
+     * @var string     
+     * 
+     * @Assert\NotBlank()
      * @ORM\Column(name="Name", type="string", length=255)
      */
     private $name;
-
+    
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = false
+     * )
      * @ORM\Column(name="Email_address", type="string", length=255)
      */
     private $emailAddress;
@@ -38,6 +47,7 @@ class Contact
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Subject", type="string", length=255)
      */
     private $subject;
@@ -45,6 +55,9 @@ class Contact
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 8, max = 20, minMessage = "min_lenght", maxMessage = "max_lenght")
+     * @Assert\Regex(pattern="/^[0-9]*$/", message="number_only")     
      * @ORM\Column(name="Phone_Number", type="string", length=255)
      */
     private $phoneNumber;
@@ -52,6 +65,7 @@ class Contact
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Your_Message", type="string", length=255)
      */
     private $yourMessage;
@@ -60,7 +74,7 @@ class Contact
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -72,12 +86,12 @@ class Contact
      *
      * @param string $name
      *
-     * @return Contact
+     * @return contact
      */
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -96,12 +110,12 @@ class Contact
      *
      * @param string $emailAddress
      *
-     * @return Contact
+     * @return contact
      */
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
-
+    
         return $this;
     }
 
@@ -120,12 +134,12 @@ class Contact
      *
      * @param string $subject
      *
-     * @return Contact
+     * @return contact
      */
     public function setSubject($subject)
     {
         $this->subject = $subject;
-
+    
         return $this;
     }
 
@@ -144,12 +158,12 @@ class Contact
      *
      * @param string $phoneNumber
      *
-     * @return Contact
+     * @return contact
      */
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
-
+    
         return $this;
     }
 
@@ -168,12 +182,12 @@ class Contact
      *
      * @param string $yourMessage
      *
-     * @return Contact
+     * @return contact
      */
     public function setYourMessage($yourMessage)
     {
         $this->yourMessage = $yourMessage;
-
+    
         return $this;
     }
 
