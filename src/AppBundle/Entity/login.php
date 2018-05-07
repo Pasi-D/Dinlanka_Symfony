@@ -27,6 +27,15 @@ class db{
      */
     protected $login_password;
 
+
+    /**
+     * @ORM\OneToOne(targetEntity="agent", mappedBy="login")
+     * @ORM\JoinColumn(name="Agent_id",referencedColumnName="Agent_id")
+     */
+
+    private $Agent;
+
+
     public function __construct($login_id)
     {
         $this->login_id=$login_id;
