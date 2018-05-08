@@ -36,6 +36,22 @@ class Admin{
      */
     protected $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="agent",mappedBy="admin")
+     *
+     */
+
+    private $agent;
+    /**
+     * @ORM\OneToOne(targetEntity="login", inversedBy="Admin")
+     * @ORM\JoinColumn(name="login_id",referencedColumnName="login_id")
+     */
+
+    private $login;
+
+
+
+
 
     public function __construct($Admin_id)
     {

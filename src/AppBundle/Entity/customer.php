@@ -36,6 +36,29 @@ class Customer{
      */
     protected $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="cargo",mappedBy="customer")
+     *
+     */
+
+    private $cargo;
+
+    /**
+     * @ORM\OneToMany(targetEntity="delivery",mappedBy="customer")
+     *
+     */
+
+    private $delivery;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="agent", inversedBy="customer")
+     * @ORM\JoinColumn(name="Agent_id",referencedColumnName="Agent_id")
+     */
+
+    private $agent;
+
+
     public function __construct($cus_id)
     {
         $this->cus_id=$cus_id;

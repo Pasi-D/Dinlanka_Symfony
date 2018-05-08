@@ -28,6 +28,20 @@ class Cargo{
      */
     protected $Cargo_description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="agent", inversedBy="cargo")
+     * @ORM\JoinColumn(name="Agent_id",referencedColumnName="Agent_id")
+     */
+
+    private $agent;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="customer", inversedBy="customer")
+     * @ORM\JoinColumn(name="cus_id",referencedColumnName="cus_id")
+     */
+
+    private $customer;
+
     public function __construct($Cargo_id)
     {
         $this->Cargo_id=$Cargo_id;
