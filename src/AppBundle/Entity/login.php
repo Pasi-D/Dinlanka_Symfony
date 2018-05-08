@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="login")
  */
-class db{
+class login{
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -29,12 +29,18 @@ class db{
 
 
     /**
-     * @ORM\OneToOne(targetEntity="agent", mappedBy="login")
+     * @ORM\OneToOne(targetEntity="Agent", mappedBy="login")
      * @ORM\JoinColumn(name="Agent_id",referencedColumnName="Agent_id")
      */
 
     private $Agent;
 
+    /**
+     * @ORM\OneToOne(targetEntity="Admin", mappedBy="login")
+     * @ORM\JoinColumn(name="Admin_id",referencedColumnName="Admin_id")
+     */
+
+    private $Admin;
 
     public function __construct($login_id)
     {

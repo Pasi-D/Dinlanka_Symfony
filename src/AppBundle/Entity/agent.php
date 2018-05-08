@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Agent
  * @package AppBundle\Entity
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AgentRepository")
  * @ORM\Table(name="Agent")
  */
 
@@ -36,8 +36,53 @@ protected $email;
 */
 protected $address;
 
+    /**
+     * @ORM\OneToMany(targetEntity="cargo",mappedBy="agent")
+     *
+     */
+
+    private $cargo;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="admin", inversedBy="agent")
+     * @ORM\JoinColumn(name="Admin_id",referencedColumnName="Admin_id")
+     */
+
+    private $admin;
+
+    /**
+     * @ORM\OneToMany(targetEntity="delivery",mappedBy="agent")
+     *
+     */
+
+    private $delivery;
+
+    /**
+     * @ORM\OneToMany(targetEntity="customer",mappedBy="agent")
+     *
+     */
+
+    private $customer;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="admin", inversedBy="agent")
+     * @ORM\JoinColumn(name="Admin_id",referencedColumnName="Admin_id")
+     */
+
+    private $Admin;
+
+    /**
+     * @ORM\OneToOne(targetEntity="login",inversedBy="Agent")
+     *@ORM\JoinColumn(name="login_id",referencedColumnName="login_id")
+     */
+
+    private $login;
+
+
     public function __construct($Agent_id)
     {
         $this->Agent_id=$Agent_id;
     }
 }
+
+

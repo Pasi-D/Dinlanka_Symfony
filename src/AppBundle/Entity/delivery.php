@@ -23,10 +23,7 @@ class Delivery{
      * @ORM\Column(type="string")
      */
     protected $del_description;
-    /**
-     * @ORM\Column(type="integer")
-     */
-    protected $cargo_id;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -43,6 +40,23 @@ class Delivery{
      * @ORM\Column(type="string")
      */
     protected $current_location;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="customer", inversedBy="delivery")
+     * @ORM\JoinColumn(name="cus_id",referencedColumnName="cus_id")
+     */
+
+    private $customer;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="agent", inversedBy="delivery")
+     * @ORM\JoinColumn(name="Agent_id",referencedColumnName="Agent_id")
+     */
+
+    private $agent;
+
+
+
 
     public function __construct($del_customer_id)
     {
