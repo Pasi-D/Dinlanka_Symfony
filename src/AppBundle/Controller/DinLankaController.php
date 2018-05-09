@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+//use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 use AppBundle\Entity\Contact;
@@ -44,9 +46,9 @@ class DinLankaController extends Controller
      # Add form fields
        $form = $this->createFormBuilder($contact)
        ->add('Name', TextType::class, array('label'=> 'Name', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
-       ->add('Email_address', TextType::class, array('label'=> 'Email address','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
+       ->add('Email_address', EmailType::class, array('label'=> 'Email address','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
        ->add('Subject', TextType::class, array('label'=> 'Subject','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
-       ->add('Phone_Number', TextType::class, array('label'=> 'Phone Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
+       ->add('Phone_Number', NumberType::class, array('label'=> 'Phone Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
        ->add('Your_Message', TextareaType::class, array('label'=> 'Your Message','attr' => array('class' => 'form-control')))
 
        ->getForm();

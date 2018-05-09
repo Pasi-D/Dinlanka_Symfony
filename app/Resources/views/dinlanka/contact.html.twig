@@ -19,20 +19,29 @@
  
                             <div class="form-group">
 
-                                {{ form_row(form.Name) }}  
+                                {{ form_label(form.Name) }}
+                                {{ form_errors(form.Name) }}
+                                {{ form_widget(form.Name) }} 
                                
                             </div>
 
                             <div class="form-group">
 
-                                {{ form_row(form.Email_address) }}
+
+                                {{ form_label(form.Email_address) }}
+                                {{ form_errors(form.Email_address) }}
+                                {{ form_widget(form.Email_address) }}                            
+
                                  
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                        {{ form_row(form.Subject) }}
+                                {{ form_label(form.Subject) }}
+                                {{ form_errors(form.Subject) }}
+                                {{ form_widget(form.Subject) }}                                     
+
                                       
                                     </div>
                                 </div>
@@ -40,7 +49,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 
-                                        {{ form_row(form.Phone_Number) }}
+                                {{ form_label(form.Phone_Number) }}
+                                {{ form_errors(form.Phone_Number) }}
+                                {{ form_widget(form.Phone_Number) }}                                      
+
                                        
                                     </div>
                                 </div>    
@@ -48,7 +60,10 @@
 
                             <div class="form-group text-area">
 
-                                        {{ form_row(form.Your_Message) }}
+                                {{ form_label(form.Your_Message) }}
+                                {{ form_errors(form.Your_Message) }}
+                                {{ form_widget(form.Your_Message) }}                              
+
                                 
                             </div>
 
