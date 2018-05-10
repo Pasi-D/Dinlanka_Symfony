@@ -179,6 +179,22 @@ class DinLankaController extends Controller
     }
 
     /**
+     * @Route("/track-request", name="Tracking Request")
+     */
+    public function tracking_requestAction(Request $request)
+    {
+        return $this->render('dinlanka/track-order-request.html.twig');
+    }
+
+    /**
+     * @Route("/track-info", name="Tracking information")
+     */
+    public function tracking_infoAction(Request $request)
+    {
+        return $this->render('dinlanka/tracking-info-page.html.twig');
+    }
+    
+    /**
      * @Route("/admin", name="admin page")
      */
     public function adminAction(Request $request)
