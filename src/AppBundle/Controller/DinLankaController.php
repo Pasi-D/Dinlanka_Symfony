@@ -49,7 +49,7 @@ class DinLankaController extends Controller
        ->add('Email_address', EmailType::class, array('label'=> 'Email address','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
        ->add('Subject', TextType::class, array('label'=> 'Subject','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
        ->add('Phone_Number', NumberType::class, array('label'=> 'Phone Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
-       ->add('Your_Message', TextareaType::class, array('label'=> 'Your Message','attr' => array('class' => 'form-control')))
+       ->add('Your_Message', TextareaType::class, array('label'=> 'Your Message','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
 
        ->getForm();
 
@@ -177,4 +177,13 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/entrepot-trade.html.twig');
     }
+
+    /**
+     * @Route("/admin", name="admin page")
+     */
+    public function adminAction(Request $request)
+    {
+        return $this->render('dinlanka/admin.html.twig');
+    }    
+   
 }
