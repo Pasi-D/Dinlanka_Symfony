@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DinLanka Tracking | www.dinlanka.com | Service Beyond Borders {% endblock %}
+
+{% block body %}
+
+    <section class="page-title-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header-wrap">
+                        <div class="page-header">
+                            <h1>DinLanka Logistics Order Tracking</h1>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a></li>
+                            <li class="active">Tracking</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-page-contents section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="service-featured-thumbs">
+                        <div class="service-thumb">
+                            <a href="img/track.png" class="img-link">
+                                <img class="img-responsive" src="img/track.png" alt="service">
+                            </a>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="service-thumb">
+                                    <a href="img/service/sv2.jpg" class="img-link">
+                                        <img class="img-responsive" src="img/service/sv2.jpg" alt="service">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="service-thumb">
+                                    <a href="img/service/zoom3.jpg" class="img-link">
+                                        <img class="img-responsive" src="img/service/sv3.jpg" alt="service">
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- /.row -->
+                    </div><!-- /.service-featured-thumbs -->
+
+                </div><!-- /.col -->
+
+                <div class="col-xs-12 col-sm-6">
+                    <div class="service-featured-content">
+
+                        <h4>You can use the following form to track the current status of your order. If you have any issue with the order status, please raise a ticket using the DinLanka Support Center.</h4>
+                        <br>
+                        <h2>Track an Order</h2>
+
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="id">Order Number:</label>
+                                <input type="number" class="form-control" id="track_id">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Order E-mail Address:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary ">Track</button>
+                        </form>
+                    </div>
+                    <div><a href="/track-info"><h4>click here||track info page with map. (link should be removed after implementation)</h4></a></div>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+
+
+
+        </div><!-- /.container -->
+
+    </section>
+
+    <!-- cta start -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <br>
+
+            <!-- Modal -->
+            <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="quoteModalLabel">Request a rate for the shipping of your goods.</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="contactForm" action="sendemail.php" method="POST">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input id="name" name="name" type="text" class="form-control"  required="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="company">Company Name</label>
+                                            <input id="company" name="company" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input id="phone" name="phone" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input id="email" name="email" type="email" class="form-control" required="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="city">City Name</label>
+                                            <input id="city" name="city" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="subject">Subject</label>
+                                            <input id="subject" name="subject" type="text" class="form-control" required="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-area">
+                                    <label for="message">Your Message</label>
+                                    <textarea id="message" name="message" class="form-control" rows="6" required="" placeholder=""></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container -->
+    </section><!-- /.cta-section -->
+    <!-- cta end -->
+
+{% endblock %}
+
+
+
