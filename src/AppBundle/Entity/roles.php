@@ -28,6 +28,13 @@ class Roles{
      */
     protected $Role_description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="login",mappedBy="Roles")
+     *
+     */
+
+    private $login;
+
     public function __construct($Role_id)
     {
         $this->Role_id=$Role_id;

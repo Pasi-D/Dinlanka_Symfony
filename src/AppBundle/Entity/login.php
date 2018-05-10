@@ -42,6 +42,12 @@ class login{
 
     private $Admin;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Roles", inversedBy="login")
+     * @ORM\JoinColumn(name="Role_id",referencedColumnName="Role_id")
+     */
+
+    private $Roles;
     public function __construct($login_id)
     {
         $this->login_id=$login_id;
