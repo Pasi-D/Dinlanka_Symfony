@@ -1,69 +1,42 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
 
-{% block title %}Entrepot-Trade | www.dinlanka.com | Service Beyond Borders {% endblock %}
+{% block title %}Contact Us | www.dinlanka.com | Service Beyond Borders {% endblock %}
 
 {% block body %}
-
     <section class="page-title-section">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="page-header-wrap">
                         <div class="page-header">
-                            <h1>ENTREPOT TRADE</h1>
+                            <h1>DinLanka Logistics Order Tracking</h1>
                         </div>
                         <ol class="breadcrumb">
-                            <li><a href="/dinlanka">Home</a></li>
-                            <li class="active">ENTREPOT TRADE</li>
+                            <li><a href="#">Home</a></li>
+                            <li class="active">Tracking</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Single-Service-Start -->
-    <section class="single-service-contents">
+    <section class="contact-info-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-5 col-xs-12">
-                    <div class="service-sidebar sidebar-wrapper">
+            <div class="text-center">
+                <h2 class="section-title">Your Order Tracking Details</h2>
+            </div>
 
-                        <div class="widget">
-                            <h2 class="widget-title">Services</h2>
-                            <ul class="service-list">
-                                <li><a href="/dinlanka/ior-eor-services" class="icon-air">IOR EOR Services</a></li>
-                                <li><a href="/dinlanka/ocean-freight" class="icon-marine">Ocean Freight</a></li>
-                                <li><a href="/dinlanka/air-freight" class="icon-store">Air Freight</a></li>
-                                <li><a href="/sea-air-service" class="icon-shipping">Sea-Air Service</a></li>
-                                <li><a href="/dinlanka/dinlanka-cargo-insurance" class="icon-transportation">Cargo Insurance</a></li>
-                                <li><a href="/dinlanka/new-shipping-containers-for-sale" class="icon-trucking">New &amp; Used Containers</a></li>
-                                <li class="active"><a href="/dinlanka/supply-chain-manegment" class="icon-trucking">Supply Chain Management</a></li>
-                            </ul>
-                        </div>
+            <div class="row content-row">
 
-                        <div class="widget">
-                            <h2 class="widget-title">Office Hours</h2>
-                            <div class="textwidget">
-                                <p>Monday -
-                                    Friday: 9:00 - 18:00<br>
-                                    Saturday: 9:00 - 2:00<br>
-                                    Holidays: 9:00 - 12:00</p>
-                            </div>
-                        </div><!-- /.widget -->
-                    </div><!-- /.sidebar-wrapper -->
-                </div><!-- /.col -->
-                <div class="col-md-9 col-sm-7 col-xs-12">
-                    <img class="img-alignnone" src="{{ asset('img/') }}" alt="image">
-                    <p>We are registered under Sri Lanka Customs and Sri Lanka Port Authority to facilitate the entrepot trade in Sri Lanka, So we can act as Exporter/ Importer.This will help cutomers to get the trade agreement benefits, when importing goods between Sri Lanka & other countries.</p>
-                    <p>Customers do not need to worry to find the companies/ registered companies in Sri Lanka as we are offering total solution under one roof.</p>
-                    <p>This will help 3rd party exporters to hide the real exporter/ manufacture from the consignee.We can add value added to its product by relabeling ,repacking etc.</p>
+                <div class="col-md-12">
+                    <div id="googleMap" style="width:100%;height:400px;"></div>
 
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
+
+
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- Single-Service-End-->
 
 
     <!-- cta start -->
@@ -76,7 +49,9 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                             <h4 class="modal-title" id="quoteModalLabel">Request a rate for the shipping of your goods.</h4>
                         </div>
                         <div class="modal-body">
@@ -85,7 +60,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input id="name" name="name" type="text" class="form-control"  required="" placeholder="">
+                                            <input id="name" name="name" type="text" class="form-control" required="" placeholder="">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -136,7 +111,26 @@
                 </div>
             </div>
 
-        </div><!-- /.container -->
-    </section><!-- /.cta-section -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.cta-section -->
     <!-- cta end -->
+
+
+
+    <script>
+        function myMap() {
+            var mapProp= {
+                center:new google.maps.LatLng(51.508742,-0.120850),
+                zoom:5,
+            };
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        }
+    </script>
+
+
+
+
 {% endblock %}
+
