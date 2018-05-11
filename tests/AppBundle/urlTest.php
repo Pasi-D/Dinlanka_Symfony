@@ -33,7 +33,9 @@ public function urlProvider()
         array('/service'),
         array('/supply-chain-manegment'),
         array('/freezer-transportation-solutions'),
-        array('/entrepot-trade')
+        array('/entrepot-trade'),
+        array('/track-request'),
+        array('/track-info')
 
     );
 }
