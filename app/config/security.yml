@@ -25,7 +25,3 @@ security:
             form_login: 
                 login_path: admin/login
                 check_path: admin/login            
-
-    access_control:
-        - { path: ^/admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: ROLE_ADMIN }
