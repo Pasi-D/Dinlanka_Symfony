@@ -18,11 +18,16 @@ class login{
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $login_id;
+
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     protected $login_username;
+
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 8, minMessage = "min_lenght")
      * @ORM\Column(type="string")
      */
     protected $login_password;
