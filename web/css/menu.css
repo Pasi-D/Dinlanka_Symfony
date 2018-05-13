@@ -9,9 +9,7 @@ test
 /* ------------------------------------------------------------------
 NAVIGATION
 --------------------------------------------------------------------- */
-.mainnav {
-  position: relative;
-}
+
 
 .navbar.sticky {
   position: fixed;
@@ -25,7 +23,7 @@ NAVIGATION
   border: 0;
   border-radius: 0;
   margin: 0;
-  background: #fff;
+  background: rgba(255,255,255, 0.9);
   box-shadow: 0 0 0 1px #ededed;
 }
 
@@ -37,6 +35,8 @@ NAVIGATION
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 30px;
+  font-family: Calibri;
+
 }
 
 .navbar-default .navbar-nav>li>a:hover, 
