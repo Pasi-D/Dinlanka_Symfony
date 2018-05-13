@@ -235,52 +235,5 @@ class delivery
     {
         return $this->delCusId;
     }
-
-    /**
-     * Set customer
-     *
-     * @param \AppBundle\Entity\customer $customer
-     *
-     * @return delivery
-     */
-    public function setCustomer(\AppBundle\Entity\customer $customer = null)
-    {
-        $this->customer = $customer;
-    
-        return $this;
-    }
-
-    /**
-     * Get customer
-     *
-     * @return \AppBundle\Entity\customer
-     */
-    public function getCustomer()
-    {
-        return $this->customer;
-    }
-
-    /**
-     * Set agent
-     *
-     * @param \AppBundle\Entity\agent $agent
-     *
-     * @return delivery
-     */
-    public function setAgent(\AppBundle\Entity\agent $agent = null)
-    {
-        $this->agent = $agent;
-    
-        return $this;
-    }
-
-    /**
-     * Get agent
-     *
-     * @return \AppBundle\Entity\agent
-     */
-    public function getAgent()
-    {
-        return $this->agent;
-    }
 }
+
