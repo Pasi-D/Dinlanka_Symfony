@@ -25,3 +25,6 @@ security:
             form_login: 
                 login_path: admin/login
                 check_path: admin/login            
+
+    #encoders:
+    #AppBundle\Entity\User: bcrypt
