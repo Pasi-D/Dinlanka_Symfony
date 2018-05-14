@@ -168,7 +168,16 @@ class DinLankaController extends Controller
     public function adminAction(Request $request)
     {
         return $this->render('dinlanka/admin.html.twig');
-    }    
+    }
+    
+    /**
+     * @Route("/test", name="admin dashboard check")
+     */
+    # test page for admin dashboard - Make sure to redirect after admin login
+    public function test_Admin(Request $request)
+    {
+        return $this->render('dinlanka/admin/admin-base.html.twig');
+    }
    
 
 }
