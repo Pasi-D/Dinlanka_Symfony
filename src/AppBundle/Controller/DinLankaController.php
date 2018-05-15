@@ -167,7 +167,7 @@ class DinLankaController extends Controller
      */
     public function adminAction(Request $request)
     {
-        return $this->render('dinlanka/admin.html.twig');
+        return $this->render('dinlanka/admin/admin.html.twig');
     }
     
     /**
