@@ -178,6 +178,15 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/admin/admin-base.html.twig');
     }
+
+    /**
+     * @Route("/radio", name="radio check")
+     */
+    # test page for admin dashboard - Make sure to redirect after admin login
+    public function radiotest_Admin(Request $request)
+    {
+        return $this->render('dinlanka/admin/test.html.twig');
+    }
    
 
 }
