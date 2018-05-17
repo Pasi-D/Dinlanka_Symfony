@@ -66,15 +66,6 @@
 
                             </div>
 
-                            <div class="{% if not myForm.timetable.vars.valid %}has-error{% endif %}">
-                                {{ form_row(myForm.timetable.presetChoice) }}
-                                {{ form_row(myForm.timetable.manualEntry) }}
-
-                                <div class="col-sm-offset-2">
-                                    {{ form_errors(myForm.timetable) }}
-                                </div>
-                             </div>
-
                             <button type="submit" class="btn btn-primary">Send Message</button>
 
                         {{ form_end(form) }}

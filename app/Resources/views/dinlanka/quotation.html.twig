@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About Us | www.dinlanka.com | Service Beyond Borders {% endblock %}
+
+{% block body %}
+
+    <section class="page-title-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header-wrap">
+                        <div class="page-header">
+                            <h1>About us</h1>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">About</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="quoteModalLabel">Request a Quote.</h4>
+                        </div>
+                        <div class="modal-body">
+                            {{ form_start(form) }}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form_label(form.Name) }}
+                                            {{ form_errors(form.Name) }}
+                                            {{ form_widget(form.Name) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form_label(form.Company_Name) }}
+                                            {{ form_errors(form.Company_Name) }}
+                                            {{ form_widget(form.Company_Name) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form_label(form.Email) }}
+                                            {{ form_errors(form.Email) }}
+                                            {{ form_widget(form.Email) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form_label(form.Contact_Number) }}
+                                            {{ form_errors(form.Contact_Number) }}
+                                            {{ form_widget(form.Contact_Number) }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

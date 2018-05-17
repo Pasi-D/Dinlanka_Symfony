@@ -66,15 +66,15 @@
     <!-- cta start -->
     <section class="cta-section">
         <div class="container text-center">
-            <a data-toggle="modal" data-target="#quoteModal" href="#" class="btn btn-primary quote-btn">Get a Quote</a>
-
+            <a data-toggle="modal" href="/quote" class="btn btn-primary quote-btn">Get a Quote</a>
+{#
             <!-- Modal -->
             <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="quoteModalLabel">Request a rate for the shipping of your goods.</h4>
+                            <h4 class="modal-title" id="quoteModalLabel">Request a Quote.</h4>
                         </div>
                         <div class="modal-body">
                             <form id="contactForm" action="sendemail.php" method="POST">
@@ -130,8 +130,10 @@
             </div>
 
         </div><!-- /.container -->
+#}        
     </section><!-- /.cta-section -->
-    <!-- cta end -->
+    <!-- cta end -->           
+
 
 {% endblock %}
         
