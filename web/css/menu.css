@@ -43,6 +43,7 @@ NAVIGATION
   padding-bottom: 5px;
   border-radius: 30px;
   font-family: Calibri;
+  font-size: 15px;
 }
 
 .navbar-default .navbar-nav>li>a:hover, 
