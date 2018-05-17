@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,7 @@ class Quotation
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Name", type="string", length=255)
      */
     private $name;
@@ -31,6 +33,7 @@ class Quotation
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Company_Name", type="string", length=255)
      */
     private $companyName;
@@ -38,6 +41,11 @@ class Quotation
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      * @ORM\Column(name="Email", type="string", length=255)
      */
     private $email;
@@ -45,6 +53,9 @@ class Quotation
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 8, max = 20, minMessage = "min_lenght", maxMessage = "max_lenght")
+     * @Assert\Regex(pattern="/^[0-9]*$/", message="number_only")
      * @ORM\Column(name="Contact_Number", type="string", length=255)
      */
     private $contactNumber;
@@ -52,6 +63,7 @@ class Quotation
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Origin", type="string", length=255)
      */
     private $origin;
@@ -59,6 +71,7 @@ class Quotation
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Transportation_Mode", type="string", length=255)
      */
     private $transportationMode;
