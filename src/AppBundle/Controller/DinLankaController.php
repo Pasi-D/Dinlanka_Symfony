@@ -26,6 +26,7 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/about.html.twig');
     }
+    
     /**
      * @Route("/contact", name="contact")
      */
