@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Roles;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -195,7 +196,7 @@ class RelationshipController extends Controller
 
         $login->set($agent);
 
-        $em->persist($db);
+        $em->persist($login);
         $em->persist($agent);
 
         $em->flush();
@@ -223,8 +224,32 @@ class RelationshipController extends Controller
 
         $login->set($agent);
 
-        $em->persist($db);
+        $em->persist($login);
         $em->persist($agent);
+
+        $em->flush();
+
+        exit();
+
+    }
+    public function addlogin_roles()
+    {
+
+        $login= new login();
+        $login->setlogin_id();
+        $login->setlogin_username();
+        $login->setlogin_password();
+
+        $Roles = new Roles();
+        $Roles->setRole_id();
+        $Roles->setRole_name();
+        $Roles->setRole_description();
+
+
+        $login->set($Roles);
+
+        $em->persist($login);
+        $em->persist($Roles);
 
         $em->flush();
 

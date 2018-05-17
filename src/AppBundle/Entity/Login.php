@@ -1,9 +1,6 @@
 <?php
-
 namespace AppBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Login
  *
@@ -20,28 +17,23 @@ class Login
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="user_name", type="string", length=255)
      */
     private $userName;
-
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
-
     /**
      * @ORM\OneToOne(targetEntity="user", inversedBy="login")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
-
     /**
      * Get id
      *
@@ -51,7 +43,6 @@ class Login
     {
         return $this->id;
     }
-
     /**
      * Set userName
      *
@@ -62,10 +53,8 @@ class Login
     public function setUserName($userName)
     {
         $this->userName = $userName;
-
         return $this;
     }
-
     /**
      * Get userName
      *
@@ -75,7 +64,6 @@ class Login
     {
         return $this->userName;
     }
-
     /**
      * Set password
      *
@@ -86,10 +74,8 @@ class Login
     public function setPassword($password)
     {
         $this->password = $password;
-
         return $this;
     }
-
     /**
      * Get password
      *
@@ -100,4 +86,3 @@ class Login
         return $this->password;
     }
 }
-
