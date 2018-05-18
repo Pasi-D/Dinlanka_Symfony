@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
@@ -31,7 +32,7 @@ class QuotationController extends Controller
        ->add('Name', TextType::class, array('label'=> 'Name', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
        ->add('Company_Name', TextType::class, array('label'=> 'Company Name', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
        ->add('Email', EmailType::class, array('label'=> 'Your Email Address','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
-       ->add('Contact_Number', NumberType::class, array('label'=> 'Contact Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
+       ->add('Contact_Number', TelType::class, array('label'=> 'Contact Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
        ->add('Origin', CountryType::class, array('label'=> 'Origin'))
        ->add('Transportation_Mode', ChoiceType::class, array('label'=> 'Mode of Transport','choices' => array(
                                                                                 'Air Freight' => 'Air Freight',
