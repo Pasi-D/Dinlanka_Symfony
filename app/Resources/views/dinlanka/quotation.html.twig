@@ -66,11 +66,16 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            
+                                            {{ form_label(form.Transportation_Mode) }}
+                                            {{ form_errors(form.Transportation_Mode) }}
+                                            {{ form_widget(form.Transportation_Mode) }}      
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            {{ form_label(form.Origin) }}
+                                            {{ form_errors(form.Origin) }}
+                                            {{ form_widget(form.Origin) }} 
                                             
                                         </div>
                                     </div>
