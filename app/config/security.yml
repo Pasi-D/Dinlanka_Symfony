@@ -9,7 +9,7 @@ security:
     providers:
         db_provider:
             entity:
-                class: AppBundle:Login
+                class: AppBundle:Admin
                 property: username
 
     firewalls:
