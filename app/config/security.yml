@@ -32,6 +32,10 @@ security:
                 check_path: admin_login
                 default_target_path: admin_page
 
+            logout:
+                path: /admin/logout
+                target: /admin/login
+
     access_control:
             - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
