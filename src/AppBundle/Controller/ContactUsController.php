@@ -15,6 +15,11 @@ use AppBundle\Entity\Contact;
 
 class ContactUsController extends Controller
 {
+
+  /**
+  * @Route("/contact", name="contact")
+  */
+
 	public function contactAction(Request $request)
     {
       $contact = new Contact;     
@@ -24,7 +29,7 @@ class ContactUsController extends Controller
        ->add('Name', TextType::class, array('label'=> 'Name', 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
        ->add('Email_address', EmailType::class, array('label'=> 'Email address','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
        ->add('Subject', TextType::class, array('label'=> 'Subject','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
-       ->add('Phone_Number', NumberType::class, array('label'=> 'Phone Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
+       ->add('Phone_Number', TelType::class, array('label'=> 'Phone Number','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:6px')))
        ->add('Your_Message', TextareaType::class, array('label'=> 'Your Message','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
 
        ->getForm();
@@ -58,5 +63,5 @@ class ContactUsController extends Controller
         return $this->render('dinlanka/contact.html.twig',
             array('form' => $form->createView())
         );  
-
+    }
 }

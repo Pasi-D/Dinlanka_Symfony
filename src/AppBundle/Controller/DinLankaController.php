@@ -21,15 +21,7 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/about.html.twig');
     }
-    
-    /**
-     * @Route("/contact", name="contact")
-     */
-    public function contactAction(Request $request)
-    {
-      
-        return $this->render('dinlanka/contact.html.twig');
-    }
+
     /**
      * @Route("/dinlanka-cargo-insurance", name="cargo_insurance")
      */
