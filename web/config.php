@@ -76,7 +76,7 @@ $hasMinorProblems = (bool) count($minorProblems);
                 display: block;
             }
             .header {
-                padding: 20px 20px 20px 20px;
+                padding: 30px 30px 20px 30px;
             }
             .header-logo {
                 float: left;

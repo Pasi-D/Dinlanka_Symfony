@@ -163,7 +163,7 @@ class DinLankaController extends Controller
     }
     
     /**
-     * @Route("/admin", name="admin page")
+     * @Route("/admin", name="admin_page")
      */
     public function adminAction(Request $request)
     {
