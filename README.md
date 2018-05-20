@@ -2,6 +2,7 @@ Symfony Project
 ========================
 
 [![Build Status](https://travis-ci.org/xXZang3tsuXx/Dinlanka_Symfony.svg?branch=master)](https://travis-ci.org/xXZang3tsuXx/Dinlanka_Symfony)
+[![Documentation Status](https://readthedocs.org/projects/dinlanka/badge/?version=latest)](http://dinlanka.readthedocs.io/en/latest/?badge=latest)
 
 Pre-requisites
 -------------- 

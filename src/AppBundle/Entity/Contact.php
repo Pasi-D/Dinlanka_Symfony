@@ -201,4 +201,3 @@ class Contact
         return $this->yourMessage;
     }
 }
-

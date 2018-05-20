@@ -11,3 +11,4 @@ namespace AppBundle\Repository;
 class ContainerRepository extends \Doctrine\ORM\EntityRepository
 {
 }
+
