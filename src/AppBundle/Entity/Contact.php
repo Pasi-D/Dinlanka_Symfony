@@ -38,7 +38,7 @@ class Contact
      * @Assert\NotBlank()
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = false
+     *     checkMX = true
      * )
      * @ORM\Column(name="Email_address", type="string", length=255)
      */
@@ -201,4 +201,3 @@ class Contact
         return $this->yourMessage;
     }
 }
-
