@@ -4,8 +4,6 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * User
  *
@@ -26,9 +24,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="user_name", type="string", length=255)
      */
-    private $name;
+    private $userName;
 
     /**
      * @var string
@@ -36,6 +34,13 @@ class User
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255)
+     */
+    private $password;
 
     /**
      * @var \DateTime
@@ -60,18 +65,6 @@ class User
 
 
     /**
-     * @ORM\OneToOne(targetEntity="login", mappedBy="user")
-     */
-    private $login;
-
-    public function __construct()
-    {
-        $this->login = new ArrayCollection();
-
-    }
-
-
-    /**
      * Get id
      *
      * @return int
@@ -82,27 +75,27 @@ class User
     }
 
     /**
-     * Set name
+     * Set userName
      *
-     * @param string $name
+     * @param string $userName
      *
      * @return User
      */
-    public function setName($name)
+    public function setUserName($userName)
     {
-        $this->name = $name;
+        $this->userName = $userName;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get userName
      *
      * @return string
      */
-    public function getName()
+    public function getUserName()
     {
-        return $this->name;
+        return $this->userName;
     }
 
     /**
@@ -127,6 +120,30 @@ class User
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 
     /**
