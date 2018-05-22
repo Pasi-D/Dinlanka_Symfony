@@ -4,27 +4,19 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecurityController extends Controller
-{
+class SecurityController extends Controller{
 
     /**
-     * @Route("/admin/login", name="admin_login")
+     * @Route("/login", name="login")
      */
-
-    public function loginAction(Request $request, AuthenticationUtils $authenticationUtils)
-    {
+    public function loginAction(){
         $authenticationUtils = $this->get('security.authentication_utils');
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-
-        return $this->render('dinlanka/admin/admin-login.html.twig', array(
+        return $this->render('security/login.html.twig', array(
                 // last username entered by the user
                 'username' => $lastUsername,
                 'error'         => $error,
@@ -33,9 +25,10 @@ class SecurityController extends Controller
     }
 
     /**
-     * @Route("/admin/logout", name="admin_logout")
+     * @Route("/logout")
+     * @throws \RuntimeException
      */
-    public function logoutAction () {
-
+    public function logoutAction(){
+        throw new \RuntimeException('This should never be called directly');
     }
 }

@@ -9,13 +9,18 @@ class DinLankaController extends Controller
 {
     /**
      * @Route("/", name="indexpage")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request)
     {
         return $this->render('dinlanka/index.html.twig');
     }
+
     /**
      * @Route("/about", name="about")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function aboutAction(Request $request)
     {
@@ -24,48 +29,68 @@ class DinLankaController extends Controller
 
     /**
      * @Route("/dinlanka-cargo-insurance", name="cargo_insurance")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function cargoAction(Request $request)
     {
         return $this->render('dinlanka/dinlanka-cargo-insurance.html.twig');
-    } 
+    }
+
     /**
      * @Route("/air-freight", name="air_freight")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function airfreightAction(Request $request)
     {
         return $this->render('dinlanka/air-freight.html.twig');
-    }  
+    }
+
     /**
      * @Route("/ior-eor-services", name="ior & eor")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function ioreorAction(Request $request)
     {
         return $this->render('dinlanka/ior-eor-services.html.twig');
-    }  
+    }
+
     /**
      * @Route("/new-shipping-containers-for-sale", name="containers for sale")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function containers_for_saleAction(Request $request)
     {
         return $this->render('dinlanka/new-shipping-containers-for-sale.html.twig');
-    }  
+    }
+
     /**
      * @Route("/ocean-freight", name="ocean freight")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function oceanfreightAction(Request $request)
     {
         return $this->render('dinlanka/ocean-freight.html.twig');
-    } 
+    }
+
     /**
      * @Route("/sea-air-service", name="sea-air-service")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function sea_air_servicesAction(Request $request)
     {
         return $this->render('dinlanka/sea-air-service.html.twig');
-    }    
+    }
+
     /**
      * @Route("/service", name="service")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function serviceAction(Request $request)
     {
@@ -78,15 +103,21 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/supply-chain-manegment.html.twig');
     }
+
     /**
      * @Route("/freezer-transportation-solutions", name="freezer transportation & solutions")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function freezer_transportationAction(Request $request)
     {
         return $this->render('dinlanka/freezer-transportation-solutions.html.twig');
     }
+
     /**
      * @Route("/entrepot-trade", name="entrepot trade")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function entrepot_tradeAction(Request $request)
     {
@@ -95,6 +126,8 @@ class DinLankaController extends Controller
 
     /**
      * @Route("/track-request", name="Tracking Request")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function tracking_requestAction(Request $request)
     {
@@ -110,14 +143,8 @@ class DinLankaController extends Controller
 
         return $this->render('dinlanka/tracking-info-page.html.twig');
     }
-    
-    /**
-     * @Route("/admin", name="admin page")
-     */
-    public function adminAction(Request $request)
-    {
-        return $this->render('dinlanka/admin.html.twig');
-    }    
+
+
    
 
 }
