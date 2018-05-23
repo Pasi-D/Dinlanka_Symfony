@@ -16,7 +16,13 @@
                         <h3>Contact Form</h3>
 
                         {{ form_start(form) }}
-                        {{ form_errors(form) }}
+
+                        {% if form_errors(form) %}
+                            <div class="alert alert-danger">
+                                {{ form_errors(form) }}
+                            </div>
+                        {% endif %}
+                        
 
  
                             <div class="form-group">
