@@ -16,12 +16,15 @@
                         <h3>Contact Form</h3>
 
                         {{ form_start(form) }}
+                        {{ form_errors(form) }}
+
  
                             <div class="form-group">
 
                                 {{ form_label(form.Name) }}
                                 {{ form_errors(form.Name) }}
                                 {{ form_widget(form.Name) }} 
+
                                
                             </div>
 
@@ -30,8 +33,7 @@
 
                                 {{ form_label(form.Email_address) }}
                                 {{ form_errors(form.Email_address) }}
-                                {{ form_widget(form.Email_address) }}                            
-
+                                {{ form_widget(form.Email_address) }} 
                                  
                             </div>
                             <div class="row">
@@ -51,8 +53,8 @@
 
                                 {{ form_label(form.Phone_Number) }}
                                 {{ form_errors(form.Phone_Number) }}
-                                {{ form_widget(form.Phone_Number) }}                                      
-
+                                {{ form_widget(form.Phone_Number) }} 
+                                                                     
                                        
                                     </div>
                                 </div>    
@@ -69,7 +71,7 @@
                             <button type="submit" class="btn btn-primary">Send Message</button>
 
                         {{ form_end(form) }}
-                        
+                                                
                     </div>
                 </div>
                         
