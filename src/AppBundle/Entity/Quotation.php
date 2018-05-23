@@ -54,8 +54,8 @@ class Quotation
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 8, max = 20, minMessage = "min_lenght", maxMessage = "max_lenght")
-     * @Assert\Regex(pattern="/^[0-9]*$/", message="number_only")
+     * @Assert\Length(min = 8, max = 20, minMessage = "Minimum Length of the telephone no is 8", maxMessage = "The Maximum length of the telephone no is 20")
+     * @Assert\Regex(pattern="/^[0-9]*$/", message="Telephone No. contains Numbers only")
      * @ORM\Column(name="Contact_Number", type="string", length=255)
      */
     private $contactNumber;
