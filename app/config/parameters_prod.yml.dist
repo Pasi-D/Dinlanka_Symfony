@@ -2,6 +2,7 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
+    database_driver:    pdo_mysql
     database_host: '$RDS_HOSTNAME'
     database_port: '$RDS_PORT'
     database_name: '$RDS_DB_NAME'
