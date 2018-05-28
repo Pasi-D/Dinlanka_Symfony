@@ -29,7 +29,7 @@ before-install:
 # Create database, schema and fixtures
 install:
   - composer install
-  - cp app/config/parameters_prod.yml.dist app/config/parameters_prod.yml
+  - cp app/config/parameters_prod.yml
   - php bin/console doctrine:database:create --env=prod
   - php bin/console doctrine:schema:create --env=prod
   - php bin/console doctrine:fixtures:load -n --env=prod  
