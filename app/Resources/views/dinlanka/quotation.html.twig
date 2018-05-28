@@ -30,6 +30,13 @@
                         </div>
                         <div class="modal-body">
                             {{ form_start(form) }}
+                            
+                            {% if form_errors(form) %}
+                                <div class="alert alert-danger">
+                                    {{ form_errors(form) }}
+                                </div>
+                            {% endif %}
+                            
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -60,6 +67,7 @@
                                             {{ form_label(form.Contact_Number) }}
                                             {{ form_errors(form.Contact_Number) }}
                                             {{ form_widget(form.Contact_Number) }}
+                                            
                                                 
                                         </div>
                                     </div>
