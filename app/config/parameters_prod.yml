@@ -1,5 +1,6 @@
 #Production Environment parameters : AWS RDS 
 parameters:
+    database_driver:    pdo_mysql
     database_host:     '%env(RDS_HOSTNAME)%'
     database_port:     '%env(RDS_PORT)%'
     database_name:     '%env(RDS_DB_NAME)%'
