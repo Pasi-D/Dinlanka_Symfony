@@ -65,7 +65,7 @@ class Air_Freight
 
 
     /**
-     * @ORM\OneToOne(targetEntity="invoicemapping_air", inversedBy="air_freight")
+     * @ORM\OneToOne(targetEntity="InvoiceMapping_Air", inversedBy="air_freight")
      * @ORM\JoinColumn(name="bill_id", referencedColumnName="id")
      */
     private $invoicemapping_air; 

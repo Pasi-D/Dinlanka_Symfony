@@ -65,7 +65,7 @@ class Sea_Freight
 
 
     /**
-     * @ORM\OneToOne(targetEntity="invoicemapping_sea", inversedBy="sea_freight")
+     * @ORM\OneToOne(targetEntity="InvoiceMapping_Sea", inversedBy="sea_freight")
      * @ORM\JoinColumn(name="bill_id", referencedColumnName="id")
      */
     private $invoicemapping_sea;    

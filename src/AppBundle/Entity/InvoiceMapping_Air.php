@@ -38,7 +38,7 @@ class InvoiceMapping_Air
 
 
     /**
-     * @ORM\OneToOne(targetEntity="air_freight", mappedBy="invoicemapping_air")
+     * @ORM\OneToOne(targetEntity="Air_Freight", mappedBy="invoicemapping_air")
      */
     private $air_freight;
 

@@ -40,7 +40,7 @@ class InvoiceMapping_Sea
 
 
     /**
-     * @ORM\OneToOne(targetEntity="sea_freight", mappedBy="invoicemapping_sea")
+     * @ORM\OneToOne(targetEntity="Sea_Freight", mappedBy="invoicemapping_sea")
      */
     private $sea_freight;
 
