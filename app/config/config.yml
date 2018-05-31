@@ -67,11 +67,8 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-easy_admin:
-    site_name: 'DinLanka'
-    entities:
-        # change the following to the namespaces of your own entities
-        SeaFraight_Orders:
-          class: AppBundle\Entity\Air_Freight
-        AirFreight_Orders:
-          class: AppBundle\Entity\Sea_Freight
+
+
+
+
+
