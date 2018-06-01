@@ -26,6 +26,10 @@ NAVIGATION
   background: #fff;
 }
 
+.sticky .navbar-nav {
+  background-color: #fff; /*temp done by k*/
+}
+
 .navbar {
   border: 0;
   border-radius: 0;
