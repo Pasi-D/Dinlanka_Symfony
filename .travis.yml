@@ -29,7 +29,7 @@ before-install:
 # Create database, schema and fixtures
 install:
   - composer install
-  - cp app/config/parameters.yml.dist app/config/parameters.yml  
+  - cp app/config/parameters_prod.yml.dist app/config/parameters_prod.yml  
 
 before_script: composer install -n
 
@@ -37,13 +37,7 @@ before_script: composer install -n
 script:
   - phpunit
 
-deploy:
-  - provider: azure_web_apps
-    username: $AZURE_WA_USERNAME
-    password: $AZURE_WA_PASSWORD
-    site: $AZURE_WA_SITE
-    on: 
-      branch: master
+deploy:  
   - provider: elasticbeanstalk
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key:
