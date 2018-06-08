@@ -1,4 +1,5 @@
 imports:
+    - { resource: config/easy_admin_bundle.yml }
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
@@ -10,7 +11,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: [ "en"] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -69,7 +70,6 @@ swiftmailer:
 
 easy_admin:
     entities:
-        # change the following to the namespaces of your own entities
             Air_Freight:
                 class: AppBundle\Entity\Air_Freight
             InvoiceMapping_Air:
@@ -78,7 +78,4 @@ easy_admin:
                 class: AppBundle\Entity\Sea_Freight
             InvoiceMapping_Sea:
                 class: AppBundle\Entity\InvoiceMapping_Sea 
-        #- AppBundle\Entity\Air_Freight
-        #- AppBundle\Entity\InvoiceMapping_Air
-        #- AppBundle\Entity\Sea_Freight
-        #- AppBundle\Entity\InvoiceMapping_Sea
+
