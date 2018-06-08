@@ -68,14 +68,3 @@ swiftmailer:
     spool: { type: memory }
 
 
-easy_admin:
-    entities:
-            Air_Freight:
-                class: AppBundle\Entity\Air_Freight
-            InvoiceMapping_Air:
-                class: AppBundle\Entity\InvoiceMapping_Air
-            Sea_Freight:
-                class: AppBundle\Entity\Sea_Freight
-            InvoiceMapping_Sea:
-                class: AppBundle\Entity\InvoiceMapping_Sea 
-
