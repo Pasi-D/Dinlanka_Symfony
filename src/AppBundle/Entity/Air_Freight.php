@@ -24,51 +24,52 @@ class Air_Freight
     /**
      * @var string
      *
-     * @ORM\Column(name="departure", type="string", length=255)
+     * @ORM\Column(name="Air_Freight_Bill_No", type="string", length=255, unique=true)
+     */
+    private $airFreightBillNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Departure", type="string", length=255)
      */
     private $departure;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="departure_date", type="datetime")
+     * @ORM\Column(name="Departure_Date", type="datetime")
      */
     private $departureDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arrival", type="string", length=255)
+     * @ORM\Column(name="Arrival", type="string", length=255)
      */
     private $arrival;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="arrival_date", type="datetime")
+     * @ORM\Column(name="Arrival_Date", type="datetime")
      */
     private $arrivalDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="current_status", type="string", length=255)
+     * @ORM\Column(name="Current_Status", type="string", length=255)
      */
     private $currentStatus;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="airFreight_bill", type="string", length=255)
+     * @ORM\Column(name="Dinlanka_Air_Bill_No", type="string", length=255, nullable=true, unique=true)
      */
-    private $airFreightBill;
+    private $dinLankaAirBillNo;
 
-
-    /**
-     * @ORM\OneToOne(targetEntity="InvoiceMapping_Air", inversedBy="air_freight")
-     * @ORM\JoinColumn(name="bill_id", referencedColumnName="id")
-     */
-    private $invoicemapping_air; 
 
     /**
      * Get id
@@ -78,6 +79,30 @@ class Air_Freight
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set airFreightBillNo
+     *
+     * @param string $airFreightBillNo
+     *
+     * @return Air_Freight
+     */
+    public function setAirFreightBillNo($airFreightBillNo)
+    {
+        $this->airFreightBillNo = $airFreightBillNo;
+
+        return $this;
+    }
+
+    /**
+     * Get airFreightBillNo
+     *
+     * @return string
+     */
+    public function getAirFreightBillNo()
+    {
+        return $this->airFreightBillNo;
     }
 
     /**
@@ -201,27 +226,27 @@ class Air_Freight
     }
 
     /**
-     * Set airFreightBill
+     * Set dinLankaAirBillNo
      *
-     * @param string $airFreightBill
+     * @param string $dinLankaAirBillNo
      *
      * @return Air_Freight
      */
-    public function setAirFreightBill($airFreightBill)
+    public function setDinLankaAirBillNo($dinLankaAirBillNo)
     {
-        $this->airFreightBill = $airFreightBill;
+        $this->dinLankaAirBillNo = $dinLankaAirBillNo;
 
         return $this;
     }
 
     /**
-     * Get airFreightBill
+     * Get dinLankaAirBillNo
      *
      * @return string
      */
-    public function getAirFreightBill()
+    public function getDinLankaAirBillNo()
     {
-        return $this->airFreightBill;
+        return $this->dinLankaAirBillNo;
     }
 }
 

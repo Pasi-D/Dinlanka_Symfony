@@ -24,51 +24,44 @@ class Sea_Freight
     /**
      * @var string
      *
-     * @ORM\Column(name="departure", type="string", length=255)
+     * @ORM\Column(name="Sea_Freight_Bill_No", type="string", length=255, unique=true)
+     */
+    private $seaFreightBillNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Departure", type="string", length=255)
      */
     private $departure;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="departure_date", type="datetime")
+     * @ORM\Column(name="Departure_Date", type="datetime")
      */
     private $departureDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arrival", type="string", length=255)
+     * @ORM\Column(name="Arrival", type="string", length=255)
      */
     private $arrival;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="arrival_date", type="datetime")
+     * @ORM\Column(name="Arrival_Date", type="datetime")
      */
     private $arrivalDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="current_status", type="string", length=255)
+     * @ORM\Column(name="Dinlanka_Sea_Bill", type="string", length=255, nullable=true, unique=true)
      */
-    private $currentStatus;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="seaFreight_bill", type="string", length=255, unique=true)
-     */
-    private $seaFreightBill;
-
-
-    /**
-     * @ORM\OneToOne(targetEntity="InvoiceMapping_Sea", inversedBy="sea_freight")
-     * @ORM\JoinColumn(name="bill_id", referencedColumnName="id")
-     */
-    private $invoicemapping_sea;    
+    private $dinLankaSeaBill;
 
 
     /**
@@ -79,6 +72,30 @@ class Sea_Freight
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set seaFreightBillNo
+     *
+     * @param string $seaFreightBillNo
+     *
+     * @return Sea_Freight
+     */
+    public function setSeaFreightBillNo($seaFreightBillNo)
+    {
+        $this->seaFreightBillNo = $seaFreightBillNo;
+
+        return $this;
+    }
+
+    /**
+     * Get seaFreightBillNo
+     *
+     * @return string
+     */
+    public function getSeaFreightBillNo()
+    {
+        return $this->seaFreightBillNo;
     }
 
     /**
@@ -178,51 +195,27 @@ class Sea_Freight
     }
 
     /**
-     * Set currentStatus
+     * Set dinLankaSeaBill
      *
-     * @param string $currentStatus
+     * @param string $dinLankaSeaBill
      *
      * @return Sea_Freight
      */
-    public function setCurrentStatus($currentStatus)
+    public function setDinLankaSeaBill($dinLankaSeaBill)
     {
-        $this->currentStatus = $currentStatus;
+        $this->dinLankaSeaBill = $dinLankaSeaBill;
 
         return $this;
     }
 
     /**
-     * Get currentStatus
+     * Get dinLankaSeaBill
      *
      * @return string
      */
-    public function getCurrentStatus()
+    public function getDinLankaSeaBill()
     {
-        return $this->currentStatus;
-    }
-
-    /**
-     * Set seaFreightBill
-     *
-     * @param string $seaFreightBill
-     *
-     * @return Sea_Freight
-     */
-    public function setSeaFreightBill($seaFreightBill)
-    {
-        $this->seaFreightBill = $seaFreightBill;
-
-        return $this;
-    }
-
-    /**
-     * Get seaFreightBill
-     *
-     * @return string
-     */
-    public function getSeaFreightBill()
-    {
-        return $this->seaFreightBill;
+        return $this->dinLankaSeaBill;
     }
 }
 

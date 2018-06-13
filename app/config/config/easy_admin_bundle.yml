@@ -7,9 +7,11 @@ easy_admin:
               class: AppBundle\Entity\Admin
         AirFreight_Orders:
               class: AppBundle\Entity\Air_Freight
-        SeaFraight_Orders:
+        SeaFreight_Orders:
               class: AppBundle\Entity\Sea_Freight
-
+              
+        Containers:
+              class: AppBundle\Entity\Container
     design:
 
         brand_color: 'rgba(241, 85, 27, 0.75)'
