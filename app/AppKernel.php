@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
             new AppBundle\AppBundle(),
 
