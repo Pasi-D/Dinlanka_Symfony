@@ -10,13 +10,13 @@ easy_admin:
                         - id
                         - username
                         - email
+                        - lastLogin
               form:
                   fields:
                         - username
                         - email
                         - roles
                         - enabled
-                        - lastLogin
                         - { property: 'plainPassword', type: 'text', type_options: { required: false } }
                         - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         AirFreight_Orders:
