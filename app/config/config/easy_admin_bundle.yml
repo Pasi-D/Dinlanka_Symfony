@@ -4,10 +4,26 @@ easy_admin:
     entities:
         Admin:
               label: "Manage Users"
-              class: AppBundle\Entity\Admin
+              class: AppBundle\Entity\Fosuser
+              list:
+                  fields:
+                        - id
+                        - username
+                        - email
+                        - lastLogin
+              form:
+                  fields:
+                        - username
+                        - email
+                        - roles
+                        - enabled
+                        - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                        - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         AirFreight_Orders:
+              label: "Air Freight"
               class: AppBundle\Entity\Air_Freight
         SeaFreight_Orders:
+              label: "Sea Freight"
               class: AppBundle\Entity\Sea_Freight
               
         Containers:
