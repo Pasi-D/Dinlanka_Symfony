@@ -7,9 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class SecurityController extends Controller{
 
-    /**
-     * @Route("/login", name="login")
-     */
+   
     public function loginAction(){
         $authenticationUtils = $this->get('security.authentication_utils');
         // get the login error if there is one
@@ -24,10 +22,7 @@ class SecurityController extends Controller{
         );
     }
 
-    /**
-     * @Route("/logout")
-     * @throws \RuntimeException
-     */
+    
     public function logoutAction(){
         throw new \RuntimeException('This should never be called directly');
     }
