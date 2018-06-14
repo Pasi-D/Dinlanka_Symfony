@@ -64,14 +64,6 @@ class Air_Freight
     private $currentStatus;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Dinlanka_Air_Bill_No", type="string", length=255, nullable=true, unique=true)
-     */
-    private $dinLankaAirBillNo;
-
-
-    /**
      * Get id
      *
      * @return int
@@ -225,28 +217,5 @@ class Air_Freight
         return $this->currentStatus;
     }
 
-    /**
-     * Set dinLankaAirBillNo
-     *
-     * @param string $dinLankaAirBillNo
-     *
-     * @return Air_Freight
-     */
-    public function setDinLankaAirBillNo($dinLankaAirBillNo)
-    {
-        $this->dinLankaAirBillNo = $dinLankaAirBillNo;
-
-        return $this;
-    }
-
-    /**
-     * Get dinLankaAirBillNo
-     *
-     * @return string
-     */
-    public function getDinLankaAirBillNo()
-    {
-        return $this->dinLankaAirBillNo;
-    }
 }
 
