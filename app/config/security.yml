@@ -2,29 +2,17 @@
 # https://symfony.com/doc/current/security.html
 security:
 
-    role_hierarchy:
-        ROLE_ADMIN: [ROLE_USER]
 
-    encoders:
-        Symfony\Component\Security\Core\User\User:
-            algorithm: bcrypt
-        AppBundle\Entity\Admin:
-            algorithm: bcrypt
+    
 
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     # password : admin
     providers:
         in_memory:
-            memory:
-                users:
-                    admin:
-                        password: $2y$13$b2MjwyLHD48QqLQhag0uHe0xQfWlQ6u3q7XePaJcqJSS.EeOd9XVe
-                        roles: 'ROLE_ADMIN'
-        db_provider:
-            entity:
-                class: AppBundle:Admin
-                property: username
+            memory: ~
+               
+        
 
 
     firewalls:
@@ -34,17 +22,7 @@ security:
             security: false
 
         main:
-            pattern: ^/
-            provider: db_provider
-            form_login:
-                login_path: login
-                check_path: login
-                default_target_path: admin
-            logout: true
             anonymous: ~
 
-    access_control:
-        - { path: ^/admin/, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    
 
