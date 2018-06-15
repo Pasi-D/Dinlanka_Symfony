@@ -6,6 +6,7 @@ easy_admin:
               label: "Manage Users"
               class: AppBundle\Entity\Fosuser
               list:
+                  title: "Manage Users"
                   fields:
                         - id
                         - username
@@ -22,21 +23,31 @@ easy_admin:
         AirFreight_Orders:
               label: "Air Freight"
               class: AppBundle\Entity\Air_Freight
+              list:
+                  title: "Air Freight"
 
         DinLankaAirFreight_Orders:
               label: "DinLanka Air Freight"
               class: AppBundle\Entity\Dinlanka_air_freight
+              list:
+                  title: "DinLanka Air Freight"
 
         SeaFreight_Orders:
               label: "Sea Freight"
               class: AppBundle\Entity\Sea_Freight
+              list:
+                  title: "Sea Freight"
 
         DinLankaSeaFreight_Orders:
               label: "DinLanka Sea Freight"
               class: AppBundle\Entity\Dinlanka_sea_freight
+              list:
+                  title: "DinLanka Sea Freight"
               
         Containers:
               class: AppBundle\Entity\Container
+              list:
+                  title: "Container Details"
     design:
 
         brand_color: 'rgba(241, 85, 27, 0.75)'
