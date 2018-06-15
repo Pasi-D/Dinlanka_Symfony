@@ -2,7 +2,7 @@ easy_admin:
 
     site_name: 'DinLanka'
     entities:
-        Admin:
+        User:
               label: "Manage Users"
               class: AppBundle\Entity\Fosuser
               list:
