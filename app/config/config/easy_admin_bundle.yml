@@ -51,5 +51,9 @@ easy_admin:
     design:
 
         brand_color: 'rgba(241, 85, 27, 0.75)'
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'F j, Y h:i a'      
 
 
