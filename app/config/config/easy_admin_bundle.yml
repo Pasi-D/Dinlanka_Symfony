@@ -14,6 +14,7 @@ easy_admin:
                         - lastLogin
                         - { property: 'enabled' , type: 'boolean'}
               form:
+                  title: "Manage Users"
                   fields:
                         - username
                         - email
@@ -26,17 +27,23 @@ easy_admin:
               class: AppBundle\Entity\Air_Freight
               list:
                   title: "Air Freight"
+              form:
+                  title: "Air Freight"
 
         DinLankaAirFreight_Orders:
               label: "DinLanka Air Freight"
               class: AppBundle\Entity\Dinlanka_air_freight
               list:
                   title: "DinLanka Air Freight"
+              form:
+                  title: "DinLanka Air Freigh"
 
         SeaFreight_Orders:
               label: "Sea Freight"
               class: AppBundle\Entity\Sea_Freight
               list:
+                  title: "Sea Freight"
+              form:
                   title: "Sea Freight"
 
         DinLankaSeaFreight_Orders:
@@ -44,10 +51,14 @@ easy_admin:
               class: AppBundle\Entity\Dinlanka_sea_freight
               list:
                   title: "DinLanka Sea Freight"
+              form:
+                  title: "DinLanka Sea Freight"
               
         Containers:
               class: AppBundle\Entity\Container
               list:
+                  title: "Container Details"
+              form:
                   title: "Container Details"
     design:
 
