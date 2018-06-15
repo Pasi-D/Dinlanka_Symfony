@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Container
@@ -32,15 +31,14 @@ class Container
     /**
      * @var string
      *
-     * @ORM\Column(name="model_name", type="string", length=255, unique=true)
+     * @ORM\Column(name="model_name", type="string", length=255)
      */
     private $modelName;
 
     /**
      * @var string
      *
-     * @Assert\Currency
-     * @ORM\Column(name="price", type="string", length=255)
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=2)
      */
     private $price;
 
