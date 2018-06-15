@@ -59,10 +59,9 @@ class Sea_Freight
     /**
      * @var string
      *
-     * @ORM\Column(name="Dinlanka_Sea_Bill", type="string", length=255, nullable=true, unique=true)
+     * @ORM\Column(name="Current_Status", type="string", length=255)
      */
-    private $dinLankaSeaBill;
-
+    private $currentStatus;
 
     /**
      * Get id
@@ -195,27 +194,28 @@ class Sea_Freight
     }
 
     /**
-     * Set dinLankaSeaBill
+     * Set currentStatus
      *
-     * @param string $dinLankaSeaBill
+     * @param string $currentStatus
      *
-     * @return Sea_Freight
+     * @return Air_Freight
      */
-    public function setDinLankaSeaBill($dinLankaSeaBill)
+    public function setCurrentStatus($currentStatus)
     {
-        $this->dinLankaSeaBill = $dinLankaSeaBill;
+        $this->currentStatus = $currentStatus;
 
         return $this;
     }
 
     /**
-     * Get dinLankaSeaBill
+     * Get currentStatus
      *
      * @return string
      */
-    public function getDinLankaSeaBill()
+    public function getCurrentStatus()
     {
-        return $this->dinLankaSeaBill;
+        return $this->currentStatus;
     }
+
 }
 

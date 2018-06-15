@@ -22,9 +22,18 @@ easy_admin:
         AirFreight_Orders:
               label: "Air Freight"
               class: AppBundle\Entity\Air_Freight
+
+        DinLankaAirFreight_Orders:
+              label: "DinLanka Air Freight"
+              class: AppBundle\Entity\Dinlanka_air_freight
+
         SeaFreight_Orders:
               label: "Sea Freight"
               class: AppBundle\Entity\Sea_Freight
+
+        DinLankaSeaFreight_Orders:
+              label: "DinLanka Sea Freight"
+              class: AppBundle\Entity\Dinlanka_sea_freight
               
         Containers:
               class: AppBundle\Entity\Container
