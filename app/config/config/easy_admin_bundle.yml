@@ -12,6 +12,7 @@ easy_admin:
                         - username
                         - email
                         - lastLogin
+                        - { property: 'enabled' , type: 'boolean'}
               form:
                   fields:
                         - username
