@@ -74,7 +74,7 @@ fos_user:
     firewall_name: main
     user_class: AppBundle\Entity\Fosuser
     from_email:
-        address: "seasath@gmail.com"
+        address: "dinlanka@gmail.com"
         sender_name: "DinLanka"
 
 
