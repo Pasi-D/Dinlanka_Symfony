@@ -60,20 +60,33 @@
                         <br>
                         <h2>Track an Order</h2>
 
-                        <form action="#">
-                            <div class="form-group">
-                                <label for="id">Order Number:</label>
-                                <input type="number" class="form-control" id="track_id">
+
+                        {{ form_start(form, {
+                            'attr': { 'action': path('handleSearchTrack')}
+                        })  }}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form_label(form.Transportation_Mode) }}
+                                    {{ form_widget(form.Transportation_Mode) }}
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Order E-mail Address:</label>
-                                <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form_label(form.Tracking_ID) }}
+                                    {{ form_widget(form.Tracking_ID) }}
+                                </div>
                             </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary ">Track</button>
-                        </form>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        {{ form_end(form) }}
+
+
                     </div>
-                    <div><a href="/track-info"><h4>click here||track info page with map. (link should be removed after implementation)</h4></a></div>
+
 
                 </div><!-- /.col -->
             </div><!-- /.row -->
