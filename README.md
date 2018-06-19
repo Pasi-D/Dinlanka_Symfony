@@ -11,63 +11,64 @@ Pre-requisites
   * PHP version 7.0 or above.
  
 
-See the [Installing & Setting up the Symfony Framework][15] page.
+How to setup
+----------------
 
-This is the Symfony Standard Edition - a fully-functional Symfony
+Clone the repository
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+```sh
+$ git clone https://github.com/xXZang3tsuXx/Dinlanka_Symfony.git
+```
 
-The Symfony Standard Edition is configured with the following defaults:
+Move inside the clone repository and run composer install to install all the modules required
 
-  * An AppBundle you can use to start coding;
+```sh
+$ composer install
+```
+Make sure MYSQL is running in the background and execute 
 
-  * Twig as the only configured template engine;
+( If you have custom setup running on MYSQL please configure parameters.yml file in app/config )
 
-  * Doctrine ORM/DBAL;
+```sh
+$ php bin/console doctrine:create:database
+```
 
-  * Swiftmailer;
+Create the designated schema
 
-  * Annotations enabled for everything.
+```sh
+$ php bin/console doctrine:schema:create
+```
 
-It comes pre-configured with the following bundles:
+Thats all !!
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+Run the server using 
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+```sh
+$ php bin/console server:run
+```
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+Open browser and change url to [http://localhost:8000](http://localhost:8000) access the server.
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+How to access Admin Page
+------------------------
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+Browse to [http://localhost:8000/register](http://localhost:8000/register)
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+create a user with a valid email and a password
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+Suppose that you use USERNAME for Username field,
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+To promote USERNAME to ADMIN_ROLE
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
+```sh
+$ php bin/console fos:user:promote USERNAME ROLE_ADMIN 
+```
 
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
+Then browse to [http://localhost:8000/admin](http://localhost:8000/admin) or [http://localhost:8000/login](http://localhost:8000/login) & access using the created username and password.
 
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
 
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
 
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
 
-Enjoy!
 
 [1]:  https://symfony.com/doc/3.4/setup.html
 [6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
