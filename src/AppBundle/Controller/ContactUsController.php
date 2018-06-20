@@ -51,6 +51,21 @@ class ContactUsController extends Controller
            $entityManager = $this->getDoctrine()->getManager();      
            $entityManager -> persist($contact);
            $entityManager -> flush(); 
+
+           $message = (new \Swift_Message($subject))
+            ->setFrom($emailAddress)  //sender
+            ->setTo('dinlanka123@gmail.com') //receiver
+            ->setBody(
+            $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                'dinlanka/email-contact.html.twig',
+                array('name' => $name,'email' =>$emailAddress,'subject' =>$subject,'phone' =>$phoneNumber,'message' =>$yourMessage )
+            ),
+            'text/html'
+            );
+
+            $mailer->send($message);
+            
             $this->addFlash('Success', 'Your Message has Sent!');
            return $this->redirectToRoute('contact');
        }     
