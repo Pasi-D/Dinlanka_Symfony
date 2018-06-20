@@ -42,10 +42,6 @@ class Quotation
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = true
-     * )
      * @ORM\Column(name="Email", type="string", length=255)
      */
     private $email;
