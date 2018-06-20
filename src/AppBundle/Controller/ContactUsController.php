@@ -15,7 +15,7 @@ class ContactUsController extends Controller
   /**
   * @Route("/contact", name="contact")
   */
-	public function contactAction(Request $request)
+	public function contactAction(Request $request,\Swift_Mailer $mailer)
     {
       $contact = new Contact;     
  

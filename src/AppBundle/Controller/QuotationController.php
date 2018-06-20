@@ -23,7 +23,7 @@ class QuotationController extends Controller
      * @Route("/quote", name="quotation")
      */
 
-    public function quotetAction(Request $request)
+    public function quotetAction(Request $request,\Swift_Mailer $mailer)
     {
       $quote = new Quotation;     
  
@@ -70,6 +70,21 @@ class QuotationController extends Controller
            $entityManager = $this->getDoctrine()->getManager();      
            $entityManager -> persist($quote);
            $entityManager -> flush(); 
+
+           $message = (new \Swift_Message('Requesting a Quotation'))
+            ->setFrom($email)  //sender
+            ->setTo('dinlanka123@gmail.com') //receiver
+            ->setBody(
+            $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                'dinlanka/email-quotaion.html.twig',
+                array('name' => $name,'company' => $companyName,'email' =>$email,'contact' =>$contactNumber,'origin' =>$origin,'TraspotationMode' =>$transportationMode )
+            ),
+            'text/html'
+            );
+
+            $mailer->send($message);
+
             $this->addFlash('Success', 'Your Message has Sent!');
            return $this->redirectToRoute('quotation');
        }     
