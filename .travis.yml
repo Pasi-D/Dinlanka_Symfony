@@ -39,8 +39,8 @@ deploy:
     secret_access_key:
       secure: "$AWS_SECRETACCESSKEY"
     region: "ap-southeast-1"  
-    app: "getting-started-symfony-app"
-    env: "gettingStarte-symfony-env"
-    bucket_name: "elasticbeanstalk-ap-southeast-1-229280718428"
+    app: "dinlanka"
+    env: "Dinlanka-env"
+    bucket_name: "elasticbeanstalk-ap-southeast-1-142344375501"
     on: 
       branch: master
