@@ -84,6 +84,11 @@ class TrackingController extends Controller
                     )
                 );
 
+                if ($air_din_map == null) {
+                    var_export('The tracking id you entered is not available or incorrect please retry again');
+                    die();
+                }else {
+
                 $global_id = $propertyAccessor->getValue($air_din_map, '[0].airFreightBillNo');
 
                 $freight = $this->getDoctrine()->getRepository('AppBundle:Air_Freight')->findBy(
@@ -104,16 +109,20 @@ class TrackingController extends Controller
                     'latlong' => $latlong,
                     'current_loc' => $current_loc
                 ]);
-
-
-
-
+                
+                }
             }elseif ($tp_mode === 'Ocean Freight'){
                 $sea_din_map = $em->getRepository('AppBundle:Dinlanka_sea_freight')->findBy(
                     array(
                         'dinlankaSeaFreightBillNo' => $track_id
                     )
                 );
+
+                if ($sea_din_map == null) {
+                    var_export('The tracking id you entered is not available or incorrec please retry again');
+                    die();
+                }else {
+
 
                 $global_id = $propertyAccessor->getValue($sea_din_map, '[0].seaFreightBillNo');
 
@@ -138,7 +147,7 @@ class TrackingController extends Controller
                     'current_loc' => $current_loc
                 ]);
 
-
+                }
 
             }else {
                 //UPB Cargo
@@ -158,6 +167,12 @@ class TrackingController extends Controller
                     )
                 );
 
+                if ($freight == null) {
+                    var_export('The tracking id you entered is not available or incorrect please retry again');
+                    die();
+                }else {
+
+
                 $current_loc = $propertyAccessor->getValue($freight, '[0].currentStatus');
 
                 $latlong = $this->lookup($current_loc);
@@ -166,7 +181,7 @@ class TrackingController extends Controller
                     'latlong' => $latlong,
                     'current_loc' => $current_loc
                 ]);
-
+                }
             }elseif ($tp_mode === 'Ocean Freight'){
 
                 $freight = $this->getDoctrine()->getRepository('AppBundle:Sea_Freight')->findBy(
@@ -175,6 +190,10 @@ class TrackingController extends Controller
                     )
                 );
 
+                if ($freight == null) {
+                    var_export('The tracking id you entered is not available or incorrect please retry again');
+                    die();
+                }else {
                 $current_loc = $propertyAccessor->getValue($freight, '[0].currentStatus');
 
                 $latlong = $this->lookup($current_loc);
@@ -183,7 +202,7 @@ class TrackingController extends Controller
                     'latlong' => $latlong,
                     'current_loc' => $current_loc
                 ]);
-
+                }
             }else{
                 //UPB Cargo
 
