@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,8 @@ class Sea_Freight
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
      * @ORM\Column(name="Sea_Freight_Bill_No", type="string", length=255, unique=true)
      */
     private $seaFreightBillNo;
@@ -31,6 +34,7 @@ class Sea_Freight
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Departure", type="string", length=255)
      */
     private $departure;
@@ -38,6 +42,7 @@ class Sea_Freight
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Departure_Date", type="datetime")
      */
     private $departureDate;
@@ -45,6 +50,7 @@ class Sea_Freight
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Arrival", type="string", length=255)
      */
     private $arrival;
@@ -52,6 +58,7 @@ class Sea_Freight
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Arrival_Date", type="datetime")
      */
     private $arrivalDate;
@@ -59,6 +66,7 @@ class Sea_Freight
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Current_Status", type="string", length=255)
      */
     private $currentStatus;

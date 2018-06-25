@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,16 @@ class UpbCargo
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
+     * @ORM\Column(name="UPB_Bill_No", type="string", length=255, unique=true)
+     */
+    private $upbBillNo;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="WarehouseDeparture", type="string", length=255)
      */
     private $warehouseDeparture;
@@ -31,6 +42,7 @@ class UpbCargo
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="DepartureDate", type="datetime")
      */
     private $departureDate;
@@ -38,6 +50,7 @@ class UpbCargo
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="WarehouseArrive", type="string", length=255)
      */
     private $warehouseArrive;
@@ -45,6 +58,7 @@ class UpbCargo
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="ArrivalDate", type="datetime")
      */
     private $arrivalDate;
@@ -52,6 +66,7 @@ class UpbCargo
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="CurrentStatus", type="string", length=255)
      */
     private $currentStatus;
@@ -66,6 +81,31 @@ class UpbCargo
     {
         return $this->id;
     }
+
+    /**
+     * Set upbBillNo
+     *
+     * @param string $upbBillNo
+     *
+     * @return Sea_Freight
+     */
+    public function setSeaFreightBillNo($upbBillNo)
+    {
+        $this->upbBillNo = $upbBillNo;
+
+        return $this;
+    }
+
+    /**
+     * Get upbBillNo
+     *
+     * @return string
+     */
+    public function getupbBillNo()
+    {
+        return $this->upbBillNo;
+    }
+
 
     /**
      * Set warehouseDeparture
