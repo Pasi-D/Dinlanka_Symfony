@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Air_Freight
+ * UpbCargo
  *
- * @ORM\Table(name="air__freight")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Air_FreightRepository")
+ * @ORM\Table(name="upb_cargo")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UpbCargoRepository")
  */
-class Air_Freight
+class UpbCargo
 {
     /**
      * @var int
@@ -27,23 +27,23 @@ class Air_Freight
      *
      * @Assert\NotBlank()
      * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
-     * @ORM\Column(name="Air_Freight_Bill_No", type="string", length=255, unique=true)
+     * @ORM\Column(name="UPB_Bill_No", type="string", length=255, unique=true)
      */
-    private $airFreightBillNo;
+    private $upbBillNo;
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Departure", type="string", length=255)
+     * @ORM\Column(name="WarehouseDeparture", type="string", length=255)
      */
-    private $departure;
+    private $warehouseDeparture;
 
     /**
      * @var \DateTime
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Departure_Date", type="datetime")
+     * @ORM\Column(name="DepartureDate", type="datetime")
      */
     private $departureDate;
 
@@ -51,15 +51,15 @@ class Air_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Arrival", type="string", length=255)
+     * @ORM\Column(name="WarehouseArrive", type="string", length=255)
      */
-    private $arrival;
+    private $warehouseArrive;
 
     /**
      * @var \DateTime
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Arrival_Date", type="datetime")
+     * @ORM\Column(name="ArrivalDate", type="datetime")
      */
     private $arrivalDate;
 
@@ -67,9 +67,10 @@ class Air_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Current_Status", type="string", length=255)
+     * @ORM\Column(name="CurrentStatus", type="string", length=255)
      */
     private $currentStatus;
+
 
     /**
      * Get id
@@ -82,51 +83,52 @@ class Air_Freight
     }
 
     /**
-     * Set airFreightBillNo
+     * Set upbBillNo
      *
-     * @param string $airFreightBillNo
+     * @param string $upbBillNo
      *
-     * @return Air_Freight
+     * @return Sea_Freight
      */
-    public function setAirFreightBillNo($airFreightBillNo)
+    public function setSeaFreightBillNo($upbBillNo)
     {
-        $this->airFreightBillNo = $airFreightBillNo;
+        $this->upbBillNo = $upbBillNo;
 
         return $this;
     }
 
     /**
-     * Get airFreightBillNo
+     * Get upbBillNo
      *
      * @return string
      */
-    public function getAirFreightBillNo()
+    public function getupbBillNo()
     {
-        return $this->airFreightBillNo;
+        return $this->upbBillNo;
     }
 
+
     /**
-     * Set departure
+     * Set warehouseDeparture
      *
-     * @param string $departure
+     * @param string $warehouseDeparture
      *
-     * @return Air_Freight
+     * @return UpbCargo
      */
-    public function setDeparture($departure)
+    public function setWarehouseDeparture($warehouseDeparture)
     {
-        $this->departure = $departure;
+        $this->warehouseDeparture = $warehouseDeparture;
 
         return $this;
     }
 
     /**
-     * Get departure
+     * Get warehouseDeparture
      *
      * @return string
      */
-    public function getDeparture()
+    public function getWarehouseDeparture()
     {
-        return $this->departure;
+        return $this->warehouseDeparture;
     }
 
     /**
@@ -134,7 +136,7 @@ class Air_Freight
      *
      * @param \DateTime $departureDate
      *
-     * @return Air_Freight
+     * @return UpbCargo
      */
     public function setDepartureDate($departureDate)
     {
@@ -154,27 +156,27 @@ class Air_Freight
     }
 
     /**
-     * Set arrival
+     * Set warehouseArrive
      *
-     * @param string $arrival
+     * @param string $warehouseArrive
      *
-     * @return Air_Freight
+     * @return UpbCargo
      */
-    public function setArrival($arrival)
+    public function setWarehouseArrive($warehouseArrive)
     {
-        $this->arrival = $arrival;
+        $this->warehouseArrive = $warehouseArrive;
 
         return $this;
     }
 
     /**
-     * Get arrival
+     * Get warehouseArrive
      *
      * @return string
      */
-    public function getArrival()
+    public function getWarehouseArrive()
     {
-        return $this->arrival;
+        return $this->warehouseArrive;
     }
 
     /**
@@ -182,7 +184,7 @@ class Air_Freight
      *
      * @param \DateTime $arrivalDate
      *
-     * @return Air_Freight
+     * @return UpbCargo
      */
     public function setArrivalDate($arrivalDate)
     {
@@ -206,7 +208,7 @@ class Air_Freight
      *
      * @param string $currentStatus
      *
-     * @return Air_Freight
+     * @return UpbCargo
      */
     public function setCurrentStatus($currentStatus)
     {
@@ -224,6 +226,5 @@ class Air_Freight
     {
         return $this->currentStatus;
     }
-
 }
 

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="user_name", type="string", length=255)
      */
     private $userName;
@@ -31,6 +33,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
@@ -38,6 +41,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
@@ -45,6 +49,7 @@ class User
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="join_date", type="datetime")
      */
     private $joinDate;
@@ -52,6 +57,7 @@ class User
     /**
      * @var \DateTime
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="last_login", type="datetime")
      */
     private $lastLogin;
@@ -59,6 +65,7 @@ class User
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="permissions", type="string", length=255)
      */
     private $permissions;

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,7 @@ class Container
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="model_id", type="string", length=255, unique=true)
      */
     private $modelId;
@@ -31,6 +33,8 @@ class Container
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
      * @ORM\Column(name="model_name", type="string", length=255)
      */
     private $modelName;
@@ -38,6 +42,7 @@ class Container
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="price", type="decimal", precision=10, scale=2)
      */
     private $price;
