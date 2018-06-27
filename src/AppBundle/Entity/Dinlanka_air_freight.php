@@ -26,7 +26,7 @@ class Dinlanka_air_freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
      * @ORM\Column(name="AirFreight_Bill_No", type="string", length=255, unique=true)
      */
     private $airFreightBillNo;
@@ -35,7 +35,7 @@ class Dinlanka_air_freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
      * @Assert\Regex(pattern="/^DIN/", message="Invalid DinLanka Air Bill Number")
      * @ORM\Column(name="Dinlanka_airFreight_billNo", type="string", length=255, unique=true)
      */

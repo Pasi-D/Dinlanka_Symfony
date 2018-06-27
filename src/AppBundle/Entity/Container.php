@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,7 @@ class Container
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="ModelName", type="string", length=255)
      */
     private $modelName;
@@ -31,13 +33,16 @@ class Container
     /**
      * @var string
      *
-     * @ORM\Column(name="ModelID", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the model id is 3")
+     * @ORM\Column(name="ModelId", type="string", length=255, unique=true)
      */
-    private $modelID;
+    private $modelId;
 
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Description", type="string", length=255)
      */
     private $description;
@@ -45,6 +50,7 @@ class Container
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Image", type="string", length=255)
      */
     private $image;
@@ -52,6 +58,7 @@ class Container
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="price", type="decimal", precision=10, scale=2)
      */
     private $price;
@@ -92,27 +99,27 @@ class Container
     }
 
     /**
-     * Set modelID
+     * Set modelId
      *
-     * @param string $modelID
+     * @param string $modelId
      *
      * @return Container
      */
-    public function setModelID($modelID)
+    public function setModelId($modelId)
     {
-        $this->modelID = $modelID;
+        $this->modelId = $modelId;
 
         return $this;
     }
 
     /**
-     * Get modelID
+     * Get modelId
      *
      * @return string
      */
-    public function getModelID()
+    public function getModelId()
     {
-        return $this->modelID;
+        return $this->modelId;
     }
 
     /**

@@ -26,7 +26,7 @@ class Air_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
      * @ORM\Column(name="Air_Freight_Bill_No", type="string", length=255, unique=true)
      */
     private $airFreightBillNo;
