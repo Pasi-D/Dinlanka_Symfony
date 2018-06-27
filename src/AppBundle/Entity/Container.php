@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,24 +24,34 @@ class Container
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="model_id", type="string", length=255, unique=true)
-     */
-    private $modelId;
-
-    /**
-     * @var string
-     *
-     * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
-     * @ORM\Column(name="model_name", type="string", length=255)
+     * @ORM\Column(name="ModelName", type="string", length=255)
      */
     private $modelName;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
+     * @ORM\Column(name="ModelID", type="string", length=255, unique=true)
+     */
+    private $modelID;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Image", type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="price", type="decimal", precision=10, scale=2)
      */
     private $price;
@@ -56,30 +65,6 @@ class Container
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set modelId
-     *
-     * @param string $modelId
-     *
-     * @return Container
-     */
-    public function setModelId($modelId)
-    {
-        $this->modelId = $modelId;
-
-        return $this;
-    }
-
-    /**
-     * Get modelId
-     *
-     * @return string
-     */
-    public function getModelId()
-    {
-        return $this->modelId;
     }
 
     /**
@@ -104,6 +89,78 @@ class Container
     public function getModelName()
     {
         return $this->modelName;
+    }
+
+    /**
+     * Set modelID
+     *
+     * @param string $modelID
+     *
+     * @return Container
+     */
+    public function setModelID($modelID)
+    {
+        $this->modelID = $modelID;
+
+        return $this;
+    }
+
+    /**
+     * Get modelID
+     *
+     * @return string
+     */
+    public function getModelID()
+    {
+        return $this->modelID;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Container
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Container
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
