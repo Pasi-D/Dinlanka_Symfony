@@ -62,17 +62,35 @@ easy_admin:
                   title: "Container Details"
               form:
                   title: "Container Details"
+        
+        #UPBCargo:
+              #class: AppBundle\Entity\UPB
+              #list:
+                  #title: "UPB Cargo"
+              #form:
+                  #title: "UPB Cargo"
+
+        #DinLankaUPBCargo:
+              #class: AppBundle\Entity\DinlankaUpb
+              #list:
+                  #title: "DinLanka UPB Cargo"
+              #form:
+                  #title: "Container UPB Cargo"
+
     design:
         
         brand_color: 'rgba(241, 85, 27, 0.75)'
 
         menu:
-            - { entity: 'User', icon: 'user' }
+            - {entity: 'User', icon: 'user' }
             - {entity: AirFreight_Orders, icon: 'plane'}
             - {entity: DinLankaAirFreight_Orders, icon: 'plane'}
             - {entity: SeaFreight_Orders, icon: 'ship'}
             - {entity: DinLankaSeaFreight_Orders, icon: 'ship'}
             - {entity: Containers, icon: 'archive'}
+            #- {entity: UPB, icon: 'archive'}
+            #- {entity: DinlankaUpb, icon: 'archive'}
+
     formats:
         date:     'd/m/Y'
         time:     'H:i'

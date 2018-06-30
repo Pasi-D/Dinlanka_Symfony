@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,8 @@ class DinlankaUpb
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
      * @ORM\Column(name="UPB_Bill_No", type="string", length=255, unique=true)
      */
     private $uPBBillNo;
@@ -31,6 +34,9 @@ class DinlankaUpb
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
+     * @Assert\Regex(pattern="/^DIN/", message="Invalid DinLanka Air Bill Number")
      * @ORM\Column(name="Dinlanka_UPB_BillNo", type="string", length=255, unique=true)
      */
     private $dinlankaUPBBillNo;

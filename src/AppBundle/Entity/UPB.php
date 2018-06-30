@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="UPB_Bill_No", type="string", length=255, unique=true)
      */
     private $upbBillNo;
@@ -31,6 +33,8 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
      * @ORM\Column(name="Pickup_Point", type="string", length=255)
      */
     private $pickupPoint;
@@ -38,6 +42,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Warehouse_Pick", type="string", length=255)
      */
     private $warehousePick;
@@ -45,6 +50,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Port_Deparure", type="string", length=255)
      */
     private $portDeparure;
@@ -52,6 +58,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Port_Arrive", type="string", length=255)
      */
     private $portArrive;
@@ -59,6 +66,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Warehouse_Drop", type="string", length=255)
      */
     private $warehouseDrop;
@@ -66,6 +74,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Drop_Point", type="string", length=255)
      */
     private $dropPoint;
@@ -73,6 +82,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Current_Status", type="string", length=255)
      */
     private $currentStatus;
@@ -80,6 +90,7 @@ class UPB
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Description", type="string", length=255)
      */
     private $description;
