@@ -41,7 +41,6 @@ class Dinlanka_air_freight
      */
     private $dinlankaAirFreightBillNo;
 
-
     /**
      * Get id
      *

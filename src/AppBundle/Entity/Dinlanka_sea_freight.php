@@ -41,7 +41,6 @@ class Dinlanka_sea_freight
      */
     private $dinlankaSeaFreightBillNo;
 
-
     /**
      * Get id
      *

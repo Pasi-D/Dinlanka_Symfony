@@ -72,6 +72,14 @@ class Air_Freight
     private $currentStatus;
 
     /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="Description", type="string", length=255, unique=true)
+     */
+    private $description;
+
+    /**
      * Get id
      *
      * @return int
@@ -225,5 +233,28 @@ class Air_Freight
         return $this->currentStatus;
     }
 
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Description
+     */
+    public function setDescription($description)
+    {
+        $this->$description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get $description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->$description;
+    }
 }
 
