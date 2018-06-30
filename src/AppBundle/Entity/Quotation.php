@@ -244,7 +244,7 @@ class Quotation
      */
     public function setDescription($description)
     {
-        $this->$description = $description;
+        $this->description = $description;
 
         return $this;
     }
@@ -256,7 +256,7 @@ class Quotation
      */
     public function getDescription()
     {
-        return $this->$description;
+        return $this->description;
     }
 }
 
