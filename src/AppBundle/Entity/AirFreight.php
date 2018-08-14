@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Air_Freight
+ * AirFreight
  *
- * @ORM\Table(name="air__freight")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Air_FreightRepository")
+ * @ORM\Table(name="air_freight")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AirFreightRepository")
  */
-class Air_Freight
+class AirFreight
 {
     /**
      * @var int
@@ -26,10 +26,10 @@ class Air_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
-     * @ORM\Column(name="Air_Freight_Bill_No", type="string", length=255, unique=true)
+     * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
+     * @ORM\Column(name="AirFreightBillNumber", type="string", length=255, unique=true)
      */
-    private $airFreightBillNo;
+    private $airFreightBillNumber;
 
     /**
      * @var string
@@ -43,7 +43,7 @@ class Air_Freight
      * @var \DateTime
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Departure_Date", type="datetime")
+     * @ORM\Column(name="DepartureDate", type="datetime")
      */
     private $departureDate;
 
@@ -59,7 +59,7 @@ class Air_Freight
      * @var \DateTime
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Arrival_Date", type="datetime")
+     * @ORM\Column(name="ArrivalDate", type="datetime")
      */
     private $arrivalDate;
 
@@ -67,17 +67,34 @@ class Air_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Current_Status", type="string", length=255)
+     * @ORM\Column(name="CurrentLocation", type="string", length=255)
      */
-    private $currentStatus;
+    private $currentLocation;
 
+    /**
+     * @var text
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="Description", type="text", length=255)
+     */
+    private $description;
+
+    
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Description", type="string", length=255, unique=true)
+     * @ORM\Column(name="history", type="text", nullable=true)
      */
-    private $description;
+    private $history;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="Delivered", type="boolean")
+     */
+    private $delivered;
+
+
 
     /**
      * Get id
@@ -90,27 +107,27 @@ class Air_Freight
     }
 
     /**
-     * Set airFreightBillNo
+     * Set airFreightBillNumber
      *
-     * @param string $airFreightBillNo
+     * @param string $airFreightBillNumber
      *
-     * @return Air_Freight
+     * @return AirFreight
      */
-    public function setAirFreightBillNo($airFreightBillNo)
+    public function setAirFreightBillNumber($AirFreightBillNumber)
     {
-        $this->airFreightBillNo = $airFreightBillNo;
+        $this->airFreightBillNumber = $airFreightBillNumber;
 
         return $this;
     }
 
     /**
-     * Get airFreightBillNo
+     * Get airFreightBillNumber
      *
      * @return string
      */
-    public function getAirFreightBillNo()
+    public function getAirFreightBillNumber()
     {
-        return $this->airFreightBillNo;
+        return $this->airFreightBillNumber;
     }
 
     /**
@@ -118,7 +135,7 @@ class Air_Freight
      *
      * @param string $departure
      *
-     * @return Air_Freight
+     * @return AirFreight
      */
     public function setDeparture($departure)
     {
@@ -142,7 +159,7 @@ class Air_Freight
      *
      * @param \DateTime $departureDate
      *
-     * @return Air_Freight
+     * @return AirFreight
      */
     public function setDepartureDate($departureDate)
     {
@@ -166,7 +183,7 @@ class Air_Freight
      *
      * @param string $arrival
      *
-     * @return Air_Freight
+     * @return AirFreight
      */
     public function setArrival($arrival)
     {
@@ -190,7 +207,7 @@ class Air_Freight
      *
      * @param \DateTime $arrivalDate
      *
-     * @return Air_Freight
+     * @return AirFreight
      */
     public function setArrivalDate($arrivalDate)
     {
@@ -210,27 +227,27 @@ class Air_Freight
     }
 
     /**
-     * Set currentStatus
+     * Set currentLocation
      *
-     * @param string $currentStatus
+     * @param string $currentLocation
      *
-     * @return Air_Freight
+     * @return AirFreight
      */
-    public function setCurrentStatus($currentStatus)
+    public function setCurrentLocation($currentLocation)
     {
-        $this->currentStatus = $currentStatus;
+        $this->currentLocation = $currentLocation;
 
         return $this;
     }
 
     /**
-     * Get currentStatus
+     * Get currentLocation
      *
      * @return string
      */
-    public function getCurrentStatus()
+    public function getCurrentLocation()
     {
-        return $this->currentStatus;
+        return $this->currentLocation;
     }
 
     /**
@@ -238,7 +255,7 @@ class Air_Freight
      *
      * @param string $description
      *
-     * @return Description
+     * @return AirFreight
      */
     public function setDescription($description)
     {
@@ -248,13 +265,61 @@ class Air_Freight
     }
 
     /**
-     * Get $description
+     * Get description
      *
      * @return string
      */
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set history
+     *
+     * @param string $history
+     *
+     * @return AirFreight
+     */
+    public function setHistory($history)
+    {
+        $this->history = $history;
+
+        return $this;
+    }
+
+    /**
+     * Get history
+     *
+     * @return string
+     */
+    public function getHistory()
+    {
+        return $this->history;
+    }
+
+    /**
+     * Set delivered
+     *
+     * @param boolean $delivered
+     *
+     * @return upb
+     */
+    public function setDelivered($delivered)
+    {
+        $this->delivered = $delivered;
+
+        return $this;
+    }
+
+    /**
+     * Get delivered
+     *
+     * @return bool
+     */
+    public function getDelivered()
+    {
+        return $this->delivered;
     }
 }
 

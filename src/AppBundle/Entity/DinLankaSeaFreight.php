@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DinLankaUPB
+ * DinLankaSeaFreight
  *
- * @ORM\Table(name="DinLanka_UPB")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\DinLankaUpbRepository")
+ * @ORM\Table(name="DinLanka_Sea_Freight")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\DinLankaSeaFreightRepository")
  */
-class DinLankaUPB
+class DinLankaSeaFreight
 {
     /**
      * @var int
@@ -27,19 +27,19 @@ class DinLankaUPB
      *
      * @Assert\NotBlank()
      * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
-     * @ORM\Column(name="UPBBillNumber", type="string", length=255, unique=true)
+     * @ORM\Column(name="SeaFreightBillNumber", type="string", length=255, unique=true)
      */
-    private $upbBillNumber;
+    private $seaFreightBillNumber;
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
      * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
-     * @Assert\Regex(pattern="/^DIN/", message="Bill Number Starts with DIN")
-     * @ORM\Column(name="DinlankaupbBillNumber", type="string", length=255, unique=true)
+     * @Assert\Regex(pattern="/^DIN/", message="Bill Number Starts with DIN") 
+     * @ORM\Column(name="DinlankaSeafreightBillNumber", type="string", length=255, unique=true)
      */
-    private $dinlankaUPBBillNumber;
+    private $dinlankaSeafreightBillNumber;
 
     /**
      * @var bool
@@ -60,51 +60,51 @@ class DinLankaUPB
     }
 
     /**
-     * Set upbBillNumber
+     * Set seaFreightBillNumber
      *
      * @param string $saeFreightBillNumber
      *
-     * @return DinLankaUPB
+     * @return DinLankaSeaFreight
      */
-    public function setupbBillNumber($upbBillNumber)
+    public function setseaFreightBillNumber($seaFreightBillNumber)
     {
-        $this->upbBillNumber = $upbBillNumber;
+        $this->seaFreightBillNumber = $seaFreightBillNumber;
 
         return $this;
     }
 
     /**
-     * Get upbBillNumber
+     * Get seaFreightBillNumber
      *
      * @return string
      */
-    public function getUPBBillNumber()
+    public function getSeaFreightBillNumber()
     {
-        return $this->upbBillNumber;
+        return $this->seaFreightBillNumber;
     }
 
     /**
-     * Set dinlankaUPBBillNumber
+     * Set dinlankaSeafreightBillNumber
      *
-     * @param string $dinlankaUPBBillNumber
+     * @param string $dinlankaSeafreightBillNumber
      *
-     * @return DinLankaUPB
+     * @return DinLankaSeaFreight
      */
-    public function setDinlankaUPBBillNumber($dinlankaUPBBillNumber)
+    public function setDinlankaSeafreightBillNumber($dinlankaSeafreightBillNumber)
     {
-        $this->dinlankaUPBBillNumber = $dinlankaUPBBillNumber;
+        $this->dinlankaSeafreightBillNumber = $dinlankaSeafreightBillNumber;
 
         return $this;
     }
 
     /**
-     * Get dinlankaUPBBillNumber
+     * Get dinlankaSeafreightBillNumber
      *
      * @return string
      */
-    public function getDinlankaUPBBillNumber()
+    public function getDinlankaSeafreightBillNumber()
     {
-        return $this->dinlankaUPBBillNumber;
+        return $this->dinlankaSeafreightBillNumber;
     }
 
     /**
@@ -112,7 +112,7 @@ class DinLankaUPB
      *
      * @param boolean $delivered
      *
-     * @return DinLankaUPB
+     * @return DinLankaSeaFreight
      */
     public function setDelivered($delivered)
     {

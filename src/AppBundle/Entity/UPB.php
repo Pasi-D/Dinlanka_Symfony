@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * UPB
+ * upb
  *
- * @ORM\Table(name="u_p_b")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UPBRepository")
+ * @ORM\Table(name="upb")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\upbRepository")
  */
-class UPB
+class upb
 {
     /**
      * @var int
@@ -26,74 +26,95 @@ class UPB
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="UPB_Bill_No", type="string", length=255, unique=true)
+     * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
+     * @ORM\Column(name="upbBillNumber", type="string", length=255, unique=true)
      */
-    private $upbBillNo;
+    private $upbBillNumber;
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bill no is 3")
-     * @ORM\Column(name="Pickup_Point", type="string", length=255)
+     * @ORM\Column(name="PickupPoint", type="string", length=255)
      */
     private $pickupPoint;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Warehouse_Pick", type="string", length=255)
+     * @ORM\Column(name="WarehousePick", type="string", length=255)
      */
     private $warehousePick;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Port_Deparure", type="string", length=255)
+     * @ORM\Column(name="PortDeparture", type="string", length=255)
      */
-    private $portDeparure;
+    private $portDeparture;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DepartureDate", type="datetime")
+     */
+    private $departureDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ArrivalDate", type="datetime")
+     */
+    private $arrivalDate;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Port_Arrive", type="string", length=255)
+     * @ORM\Column(name="portArrive", type="string", length=255)
      */
     private $portArrive;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Warehouse_Drop", type="string", length=255)
+     * @ORM\Column(name="WarehouseDrop", type="string", length=255)
      */
     private $warehouseDrop;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Drop_Point", type="string", length=255)
+     * @ORM\Column(name="DropPoint", type="string", length=255)
      */
     private $dropPoint;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Current_Status", type="string", length=255)
+     * @ORM\Column(name="CurrentLocation", type="string", length=255)
      */
-    private $currentStatus;
+    private $currentLocation;
 
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Description", type="string", length=255)
+     * @ORM\Column(name="Description", type="text")
      */
     private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="history", type="text", nullable=true)
+     */
+    private $history;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="Delivered", type="boolean")
+     */
+    private $delivered;
 
 
     /**
@@ -107,27 +128,27 @@ class UPB
     }
 
     /**
-     * Set upbBillNo
+     * Set upbBillNumber
      *
-     * @param string $upbBillNo
+     * @param string $upbBillNumber
      *
-     * @return UPB
+     * @return upb
      */
-    public function setUpbBillNo($upbBillNo)
+    public function setUpbBillNumber($upbBillNumber)
     {
-        $this->upbBillNo = $upbBillNo;
+        $this->upbBillNumber = $upbBillNumber;
 
         return $this;
     }
 
     /**
-     * Get upbBillNo
+     * Get upbBillNumber
      *
      * @return string
      */
-    public function getUpbBillNo()
+    public function getUpbBillNumber()
     {
-        return $this->upbBillNo;
+        return $this->upbBillNumber;
     }
 
     /**
@@ -135,7 +156,7 @@ class UPB
      *
      * @param string $pickupPoint
      *
-     * @return UPB
+     * @return upb
      */
     public function setPickupPoint($pickupPoint)
     {
@@ -159,7 +180,7 @@ class UPB
      *
      * @param string $warehousePick
      *
-     * @return UPB
+     * @return upb
      */
     public function setWarehousePick($warehousePick)
     {
@@ -179,27 +200,75 @@ class UPB
     }
 
     /**
-     * Set portDeparure
+     * Set portDeparture
      *
-     * @param string $portDeparure
+     * @param string $portDeparture
      *
-     * @return UPB
+     * @return upb
      */
-    public function setPortDeparure($portDeparure)
+    public function setPortDeparture($portDeparture)
     {
-        $this->portDeparure = $portDeparure;
+        $this->portDeparture = $portDeparture;
 
         return $this;
     }
 
     /**
-     * Get portDeparure
+     * Get portDeparture
      *
      * @return string
      */
-    public function getPortDeparure()
+    public function getPortDeparture()
     {
-        return $this->portDeparure;
+        return $this->portDeparture;
+    }
+
+    /**
+     * Set departureDate
+     *
+     * @param \DateTime $departureDate
+     *
+     * @return upb
+     */
+    public function setDepartureDate($departureDate)
+    {
+        $this->departureDate = $departureDate;
+
+        return $this;
+    }
+
+    /**
+     * Get departureDate
+     *
+     * @return \DateTime
+     */
+    public function getDepartureDate()
+    {
+        return $this->departureDate;
+    }
+
+    /**
+     * Set arrivalDate
+     *
+     * @param \DateTime $arrivalDate
+     *
+     * @return upb
+     */
+    public function setArrivalDate($arrivalDate)
+    {
+        $this->arrivalDate = $arrivalDate;
+
+        return $this;
+    }
+
+    /**
+     * Get arrivalDate
+     *
+     * @return \DateTime
+     */
+    public function getArrivalDate()
+    {
+        return $this->arrivalDate;
     }
 
     /**
@@ -207,7 +276,7 @@ class UPB
      *
      * @param string $portArrive
      *
-     * @return UPB
+     * @return upb
      */
     public function setPortArrive($portArrive)
     {
@@ -231,7 +300,7 @@ class UPB
      *
      * @param string $warehouseDrop
      *
-     * @return UPB
+     * @return upb
      */
     public function setWarehouseDrop($warehouseDrop)
     {
@@ -255,7 +324,7 @@ class UPB
      *
      * @param string $dropPoint
      *
-     * @return UPB
+     * @return upb
      */
     public function setDropPoint($dropPoint)
     {
@@ -275,27 +344,27 @@ class UPB
     }
 
     /**
-     * Set currentStatus
+     * Set currentLocation
      *
-     * @param string $currentStatus
+     * @param string $currentLocation
      *
-     * @return UPB
+     * @return upb
      */
-    public function setCurrentStatus($currentStatus)
+    public function setCurrentLocation($currentLocation)
     {
-        $this->currentStatus = $currentStatus;
+        $this->currentLocation = $currentLocation;
 
         return $this;
     }
 
     /**
-     * Get currentStatus
+     * Get currentLocation
      *
      * @return string
      */
-    public function getCurrentStatus()
+    public function getCurrentLocation()
     {
-        return $this->currentStatus;
+        return $this->currentLocation;
     }
 
     /**
@@ -303,7 +372,7 @@ class UPB
      *
      * @param string $description
      *
-     * @return UPB
+     * @return upb
      */
     public function setDescription($description)
     {
@@ -320,6 +389,54 @@ class UPB
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set history
+     *
+     * @param string $history
+     *
+     * @return SeaFreight
+     */
+    public function setHistory($history)
+    {
+        $this->history = $history;
+
+        return $this;
+    }
+
+    /**
+     * Get history
+     *
+     * @return string
+     */
+    public function getHistory()
+    {
+        return $this->history;
+    }
+
+    /**
+     * Set delivered
+     *
+     * @param boolean $delivered
+     *
+     * @return upb
+     */
+    public function setDelivered($delivered)
+    {
+        $this->delivered = $delivered;
+
+        return $this;
+    }
+
+    /**
+     * Get delivered
+     *
+     * @return bool
+     */
+    public function getDelivered()
+    {
+        return $this->delivered;
     }
 }
 

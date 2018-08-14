@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Sea_Freight
+ * SeaFreight
  *
- * @ORM\Table(name="sea__freight")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Sea_FreightRepository")
+ * @ORM\Table(name="sea_freight")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SeaFreightRepository")
  */
-class Sea_Freight
+class SeaFreight
 {
     /**
      * @var int
@@ -26,10 +26,10 @@ class Sea_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the bil no is 3")
-     * @ORM\Column(name="Sea_Freight_Bill_No", type="string", length=255, unique=true)
+     * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
+     * @ORM\Column(name="SeaFreightBillNumber", type="string", length=255, unique=true)
      */
-    private $seaFreightBillNo;
+    private $seaFreightBillNumber;
 
     /**
      * @var string
@@ -43,7 +43,7 @@ class Sea_Freight
      * @var \DateTime
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Departure_Date", type="datetime")
+     * @ORM\Column(name="DepartureDate", type="datetime")
      */
     private $departureDate;
 
@@ -59,7 +59,7 @@ class Sea_Freight
      * @var \DateTime
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Arrival_Date", type="datetime")
+     * @ORM\Column(name="ArrivalDate", type="datetime")
      */
     private $arrivalDate;
 
@@ -67,18 +67,35 @@ class Sea_Freight
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="Current_Status", type="string", length=255)
+     * @ORM\Column(name="CurrentLocation", type="string", length=255)
      */
-    private $currentStatus;
+    private $currentLocation;
 
+    /**
+     * @var text
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="Description", type="text", length=255)
+     */
+    private $description;
+
+    
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="Description", type="string", length=255, unique=true)
+     * @ORM\Column(name="history", type="text", nullable=true)
      */
-    private $description;
-    
+    private $history;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="Delivered", type="boolean")
+     */
+    private $delivered;
+
+
+
     /**
      * Get id
      *
@@ -90,27 +107,27 @@ class Sea_Freight
     }
 
     /**
-     * Set seaFreightBillNo
+     * Set seaFreightBillNumber
      *
-     * @param string $seaFreightBillNo
+     * @param string $seaFreightBillNumber
      *
-     * @return Sea_Freight
+     * @return SeaFreight
      */
-    public function setSeaFreightBillNo($seaFreightBillNo)
+    public function setSeaFreightBillNumber($seaFreightBillNumber)
     {
-        $this->seaFreightBillNo = $seaFreightBillNo;
+        $this->seaFreightBillNumber = $seaFreightBillNumber;
 
         return $this;
     }
 
     /**
-     * Get seaFreightBillNo
+     * Get seaFreightBillNumber
      *
      * @return string
      */
-    public function getSeaFreightBillNo()
+    public function getSeaFreightBillNumber()
     {
-        return $this->seaFreightBillNo;
+        return $this->seaFreightBillNumber;
     }
 
     /**
@@ -118,7 +135,7 @@ class Sea_Freight
      *
      * @param string $departure
      *
-     * @return Sea_Freight
+     * @return SeaFreight
      */
     public function setDeparture($departure)
     {
@@ -142,7 +159,7 @@ class Sea_Freight
      *
      * @param \DateTime $departureDate
      *
-     * @return Sea_Freight
+     * @return SeaFreight
      */
     public function setDepartureDate($departureDate)
     {
@@ -166,7 +183,7 @@ class Sea_Freight
      *
      * @param string $arrival
      *
-     * @return Sea_Freight
+     * @return SeaFreight
      */
     public function setArrival($arrival)
     {
@@ -190,7 +207,7 @@ class Sea_Freight
      *
      * @param \DateTime $arrivalDate
      *
-     * @return Sea_Freight
+     * @return SeaFreight
      */
     public function setArrivalDate($arrivalDate)
     {
@@ -210,27 +227,27 @@ class Sea_Freight
     }
 
     /**
-     * Set currentStatus
+     * Set currentLocation
      *
-     * @param string $currentStatus
+     * @param string $currentLocation
      *
-     * @return Air_Freight
+     * @return SeaFreight
      */
-    public function setCurrentStatus($currentStatus)
+    public function setCurrentLocation($currentLocation)
     {
-        $this->currentStatus = $currentStatus;
+        $this->currentLocation = $currentLocation;
 
         return $this;
     }
 
     /**
-     * Get currentStatus
+     * Get currentLocation
      *
      * @return string
      */
-    public function getCurrentStatus()
+    public function getCurrentLocation()
     {
-        return $this->currentStatus;
+        return $this->currentLocation;
     }
 
     /**
@@ -238,7 +255,7 @@ class Sea_Freight
      *
      * @param string $description
      *
-     * @return Description
+     * @return SeaFreight
      */
     public function setDescription($description)
     {
@@ -248,13 +265,61 @@ class Sea_Freight
     }
 
     /**
-     * Get $description
+     * Get description
      *
      * @return string
      */
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set history
+     *
+     * @param string $history
+     *
+     * @return SeaFreight
+     */
+    public function setHistory($history)
+    {
+        $this->history = $history;
+
+        return $this;
+    }
+
+    /**
+     * Get history
+     *
+     * @return string
+     */
+    public function getHistory()
+    {
+        return $this->history;
+    }
+
+    /**
+     * Set delivered
+     *
+     * @param boolean $delivered
+     *
+     * @return upb
+     */
+    public function setDelivered($delivered)
+    {
+        $this->delivered = $delivered;
+
+        return $this;
+    }
+
+    /**
+     * Get delivered
+     *
+     * @return bool
+     */
+    public function getDelivered()
+    {
+        return $this->delivered;
     }
 }
 

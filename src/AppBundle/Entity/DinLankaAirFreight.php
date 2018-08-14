@@ -6,12 +6,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DinLankaUPB
+ * DinLankaAirFreight
  *
- * @ORM\Table(name="DinLanka_UPB")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\DinLankaUpbRepository")
+ * @ORM\Table(name="DinLanka_Air_Freight")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\DinLankaAirFreightRepository")
  */
-class DinLankaUPB
+class DinLankaAirFreight
 {
     /**
      * @var int
@@ -27,19 +27,19 @@ class DinLankaUPB
      *
      * @Assert\NotBlank()
      * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
-     * @ORM\Column(name="UPBBillNumber", type="string", length=255, unique=true)
+     * @ORM\Column(name="AirFreightBillNumber", type="string", length=255, unique=true)
      */
-    private $upbBillNumber;
+    private $airFreightBillNumber;
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
      * @Assert\Length(min = 8,minMessage = "Minimum Length of the Bill Number is 8")
-     * @Assert\Regex(pattern="/^DIN/", message="Bill Number Starts with DIN")
-     * @ORM\Column(name="DinlankaupbBillNumber", type="string", length=255, unique=true)
+     * @Assert\Regex(pattern="/^DIN/", message="Bill Number Starts with DIN") 
+     * @ORM\Column(name="DinlankaAirfreightBillNumber", type="string", length=255, unique=true)
      */
-    private $dinlankaUPBBillNumber;
+    private $dinlankaAirfreightBillNumber;
 
     /**
      * @var bool
@@ -60,51 +60,51 @@ class DinLankaUPB
     }
 
     /**
-     * Set upbBillNumber
+     * Set airFreightBillNumber
      *
      * @param string $saeFreightBillNumber
      *
-     * @return DinLankaUPB
+     * @return DinLankaAirFreight
      */
-    public function setupbBillNumber($upbBillNumber)
+    public function setairFreightBillNumber($airFreightBillNumber)
     {
-        $this->upbBillNumber = $upbBillNumber;
+        $this->airFreightBillNumber = $airFreightBillNumber;
 
         return $this;
     }
 
     /**
-     * Get upbBillNumber
+     * Get airFreightBillNumber
      *
      * @return string
      */
-    public function getUPBBillNumber()
+    public function getAirFreightBillNumber()
     {
-        return $this->upbBillNumber;
+        return $this->airFreightBillNumber;
     }
 
     /**
-     * Set dinlankaUPBBillNumber
+     * Set dinlankaAirfreightBillNumber
      *
-     * @param string $dinlankaUPBBillNumber
+     * @param string $dinlankaAirfreightBillNumber
      *
-     * @return DinLankaUPB
+     * @return DinLankaAirFreight
      */
-    public function setDinlankaUPBBillNumber($dinlankaUPBBillNumber)
+    public function setDinlankaAirfreightBillNumber($dinlankaAirfreightBillNumber)
     {
-        $this->dinlankaUPBBillNumber = $dinlankaUPBBillNumber;
+        $this->dinlankaAirfreightBillNumber = $dinlankaAirfreightBillNumber;
 
         return $this;
     }
 
     /**
-     * Get dinlankaUPBBillNumber
+     * Get dinlankaAirfreightBillNumber
      *
      * @return string
      */
-    public function getDinlankaUPBBillNumber()
+    public function getDinlankaAirfreightBillNumber()
     {
-        return $this->dinlankaUPBBillNumber;
+        return $this->dinlankaAirfreightBillNumber;
     }
 
     /**
@@ -112,7 +112,7 @@ class DinLankaUPB
      *
      * @param boolean $delivered
      *
-     * @return DinLankaUPB
+     * @return DinLankaAirFreight
      */
     public function setDelivered($delivered)
     {
