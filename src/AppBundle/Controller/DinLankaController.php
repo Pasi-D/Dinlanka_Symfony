@@ -124,15 +124,17 @@ class DinLankaController extends Controller
         return $this->render('dinlanka/entrepot-trade.html.twig');
     }
 
+    
     /**
-     * @Route("/upb", name="UPB Cargo")
+     * @Route("/upb_cargo", name="upb_cargo")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function upbAction(Request $request)
+    public function upb_cargoAction(Request $request)
     {
-        return $this->render('dinlanka/upb.html.twig');
+        return $this->render('dinlanka/upb_cargo.html.twig');
     }
+    
 
     /**
      * @Route("/projectcargo-freight", name="ProjectCargo Freight")
