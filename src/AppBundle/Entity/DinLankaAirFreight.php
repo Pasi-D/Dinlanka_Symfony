@@ -62,7 +62,7 @@ class DinLankaAirFreight
     /**
      * Set airFreightBillNumber
      *
-     * @param string $saeFreightBillNumber
+     * @param string $airFreightBillNumber
      *
      * @return DinLankaAirFreight
      */
