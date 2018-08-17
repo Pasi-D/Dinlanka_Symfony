@@ -56,12 +56,12 @@ easy_admin:
               form:
                   title: "DinLanka Sea Freight"
               
-        Containers:
-              class: AppBundle\Entity\Container
-              list:
-                  title: "Container Details"
-              form:
-                  title: "Container Details"
+        #Containers:
+              #class: AppBundle\Entity\Container
+              #list:
+                  #title: "Container Details"
+              #form:
+                  #title: "Container Details"
         
         #UPBCargo:
               #class: AppBundle\Entity\upb
@@ -87,7 +87,7 @@ easy_admin:
             - {entity: DinLankaAirFreight_Orders, icon: 'plane'}
             - {entity: SeaFreight_Orders, icon: 'ship'}
             - {entity: DinLankaSeaFreight_Orders, icon: 'ship'}
-            - {entity: Containers, icon: 'archive'}
+            #- {entity: Containers, icon: 'archive'}
             #- {entity: UPB, icon: 'archive'}
             #- {entity: DinlankaUpb, icon: 'archive'}
 
