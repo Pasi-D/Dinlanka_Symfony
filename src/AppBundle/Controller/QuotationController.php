@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
@@ -38,8 +39,7 @@ class QuotationController extends Controller
                                                                                 'Air Freight' => 'Air Freight',
                                                                                 'Ocean Freight' => 'Ocean Freight',
                                                                                 'Sea & Air' => 'Sea & Air',)))
-      //Origin
-       //Transportation_Mode
+       ->add('Description', TextareaType::class, array('label'=> 'Description','attr' => array('class' => 'form-control', 'style' => 'margin-bottom:7px')))
 
        ->getForm();
      # Handle form response
@@ -53,6 +53,7 @@ class QuotationController extends Controller
            $contactNumber = $form['Contact_Number']->getData();
            $origin = $form['Origin']->getData();
            $transportationMode = $form['Transportation_Mode']->getData();
+           $description = $form['Description']->getData();
 
         
      # set form data   
@@ -63,6 +64,7 @@ class QuotationController extends Controller
            $quote->setContactNumber($contactNumber);
            $quote->setOrigin($origin);
            $quote->setTransportationMode($transportationMode);
+           $quote->setDescription($description);
                
     
       # finally add data in database
@@ -78,7 +80,7 @@ class QuotationController extends Controller
             $this->renderView(
                 // app/Resources/views/Emails/registration.html.twig
                 'dinlanka/email-quotaion.html.twig',
-                array('name' => $name,'company' => $companyName,'email' =>$email,'contact' =>$contactNumber,'origin' =>$origin,'TraspotationMode' =>$transportationMode )
+                array('name' => $name,'company' => $companyName,'email' =>$email,'contact' =>$contactNumber,'origin' =>$origin,'TraspotationMode' =>$transportationMode, 'description' =>$description)
             ),
             'text/html'
             );

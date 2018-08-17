@@ -26,7 +26,16 @@ class Container
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="model_id", type="string", length=255, unique=true)
+     * @ORM\Column(name="ModelName", type="string", length=255)
+     */
+    private $modelName;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 3, minMessage = "Minimum Length of the model id is 3")
+     * @ORM\Column(name="ModelId", type="string", length=255, unique=true)
      */
     private $modelId;
 
@@ -34,10 +43,17 @@ class Container
      * @var string
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min = 3, minMessage = "Minimum Length of the telephone no is 3")
-     * @ORM\Column(name="model_name", type="string", length=255)
+     * @ORM\Column(name="Description", type="string", length=255)
      */
-    private $modelName;
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="Image", type="string", length=255)
+     */
+    private $image;
 
     /**
      * @var string
@@ -56,6 +72,30 @@ class Container
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set modelName
+     *
+     * @param string $modelName
+     *
+     * @return Container
+     */
+    public function setModelName($modelName)
+    {
+        $this->modelName = $modelName;
+
+        return $this;
+    }
+
+    /**
+     * Get modelName
+     *
+     * @return string
+     */
+    public function getModelName()
+    {
+        return $this->modelName;
     }
 
     /**
@@ -83,27 +123,51 @@ class Container
     }
 
     /**
-     * Set modelName
+     * Set description
      *
-     * @param string $modelName
+     * @param string $description
      *
      * @return Container
      */
-    public function setModelName($modelName)
+    public function setDescription($description)
     {
-        $this->modelName = $modelName;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get modelName
+     * Get description
      *
      * @return string
      */
-    public function getModelName()
+    public function getDescription()
     {
-        return $this->modelName;
+        return $this->description;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Container
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**

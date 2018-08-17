@@ -1,0 +1,129 @@
+{% extends "base.html.twig" %}
+
+{% block title %}UPB Cargo | www.dinlanka.com | Service Beyond Borders {% endblock %}
+
+{% block body %}
+    <section class="page-title-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header-wrap">
+                        <div class="page-header">
+                            <h1>UNACCOMPANIED PERSONAL BAGGAGE BY SEA & AIR</h1>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">UPB (UNACCOMPANIED PERSONAL BAGGAGE) BY SEA & AIR</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Single-Service-Start -->
+    <section class="single-service-contents">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-7 col-xs-12">
+                    <p>We have been the Pioneer in handling UPB cargo in Srilanka.  We takes total care of your personal and unaccompanied baggage’s, giving an uninterrupted in house service for all its customers.</p>
+
+                    <p>We have a strong agency overseas network in all major cities of the world and served millions of Srilankan Expatriates to send their UPB cargo to Srilanka.</p>
+
+                    <p>Our Warehouses are equipped with modern handling equipment and have provided large waiting areas with sufficient seating arrangements for the clients and ample parking for their Vehicles. Also at hand are Vans and lorries to move your UPB to your residence at reduced rates, once goods are cleared by Customs.</p>
+
+                    <p><img class="img-alignright" src="{{ asset('img/service/17.jpg') }}" alt="image">Our Baggage Shipping Includes:</p>
+                    <p>
+                        <ul style="list-style-type:disc; padding-left: 10%">
+                            <li>Door-to-door baggage service.</li>
+                            <p>We offer door-to-door services by sea (loose cargo or full container loads ), air or courier. We will collect your luggage or baggage and deliver to your door at any destination.</p>
+                            <li>Customs Advice</li>
+                            <p>Assistance with shipping and destination customs documentation for  House hold personal effects for tax free import at destination. (Tax Free Allowances)</p>
+                            <li>Fully Comprehensive Insurance Cover</li>
+                            <p>Our comprehensive insurance options have been designed to offer protection, choice and value for money. We will take complete responsibility for claims management.</P>
+                        </ul>
+                        </p>
+                        <br>
+                    <p><b>Courier (Domestic & International)</b></p>
+                    <P>We also work with major International Courier Companies and we obtain better rates for your packages to send to any part of the world.</p>
+                    <p>Big or small we undertake to deliver your packages to any part globally , with care..</P>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    <!-- Single-Service-End-->
+
+
+    <!-- cta start -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <a data-toggle="modal" href="/quote" class="btn btn-primary quote-btn">Get a Quote</a>
+{#
+            <!-- Modal -->
+            <div class="modal fade" id="quoteModal" tabindex="-1" role="dialog" aria-labelledby="quoteModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="quoteModalLabel">Request a Quote.</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="contactForm" action="sendemail.php" method="POST">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input id="name" name="name" type="text" class="form-control"  required="" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="company">Company Name</label>
+                                            <input id="company" name="company" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Contact Number</label>
+                                            <input id="phone" name="phone" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input id="email" name="email" type="email" class="form-control" required="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="city">Origin</label>
+                                            <input id="city" name="city" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="subject">Mode of Transport</label>
+                                            <input id="subject" name="subject" type="text" class="form-control" required="" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container -->
+#}        
+    </section><!-- /.cta-section -->
+    <!-- cta end -->           
+
+
+{% endblock %}

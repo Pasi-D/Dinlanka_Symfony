@@ -123,7 +123,7 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/entrepot-trade.html.twig');
     }
-
+  
     /**
      * @Route("/upb_cargo", name="upb_cargo")
      * @param Request $request
@@ -132,6 +132,17 @@ class DinLankaController extends Controller
     public function upb_cargoAction(Request $request)
     {
         return $this->render('dinlanka/upb_cargo.html.twig');
+    }
+
+    
+    /**
+     * @Route("/projectcargo-freight", name="ProjectCargo Freight")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function projectcargo_freightAction(Request $request)
+    {
+        return $this->render('dinlanka/project-cargo-freight.html.twig');
     }
 
 }
