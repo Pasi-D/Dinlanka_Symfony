@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DinLankaAirFreight
  *
- * @ORM\Table(name="DinLanka_Air_Freight")
+ * @ORM\Table(name="DinLanka Air Freight")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DinLankaAirFreightRepository")
  */
 class DinLankaAirFreight
