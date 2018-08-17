@@ -123,7 +123,7 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/entrepot-trade.html.twig');
     }
-    
+  
     /**
      * @Route("/upb_cargo", name="upb_cargo")
      * @param Request $request
@@ -133,6 +133,7 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/upb_cargo.html.twig');
     }
+
     
     /**
      * @Route("/projectcargo-freight", name="ProjectCargo Freight")
@@ -143,5 +144,6 @@ class DinLankaController extends Controller
     {
         return $this->render('dinlanka/project-cargo-freight.html.twig');
     }
+
 }
 
