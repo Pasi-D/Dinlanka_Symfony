@@ -113,7 +113,7 @@ class AirFreight
      *
      * @return AirFreight
      */
-    public function setAirFreightBillNumber($AirFreightBillNumber)
+    public function setAirFreightBillNumber($airFreightBillNumber)
     {
         $this->airFreightBillNumber = $airFreightBillNumber;
 
