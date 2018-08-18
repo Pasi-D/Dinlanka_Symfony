@@ -78,8 +78,8 @@ class QuotationController extends Controller
             ->setTo('dinlanka123@gmail.com') //receiver
             ->setBody(
             $this->renderView(
-                // app/Resources/views/Emails/registration.html.twig
-                'dinlanka/email-quotaion.html.twig',
+                
+                'dinlanka/emails/email-quotaion.html.twig',
                 array('name' => $name,'company' => $companyName,'email' =>$email,'contact' =>$contactNumber,'origin' =>$origin,'TraspotationMode' =>$transportationMode, 'description' =>$description)
             ),
             'text/html'
