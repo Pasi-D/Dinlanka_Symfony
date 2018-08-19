@@ -2,7 +2,7 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Admin;
+use AppBundle\Entity\Fosuser;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -18,14 +18,18 @@ class LoadAdminData implements FixtureInterface, ContainerAwareInterface {
      */
     public function load(ObjectManager $manager)
     {
-        $admin = new Admin();
-        $admin->setUsername('admin');
-        $admin->setEmail('admin@admin.com');
+        $fosuser = new Fosuser();
+        $fosuser->setUsername('admin');
+        #$fosuser->setUsernameCanonical('admin2')
+        $fosuser->setEmail('dinlanka@admin.com');
+        #$fosuser->setEmailCanonical('dinlanka@admin.com')
         $encoder = $this->container->get('security.password_encoder');
-        $password = $encoder->encodePassword($admin, '1234');
-        $admin->setPassword($password);
+        $password = $encoder->encodePassword($fosuser, '1234');
+        $fosuser->setPassword($password);
+        $fosuser->setEnabled(true);
+        $fosuser->setRoles(array('ROLE_ADMIN'));
 
-        $manager->persist($admin);
+        $manager->persist($fosuser);
         $manager->flush();
     }
 

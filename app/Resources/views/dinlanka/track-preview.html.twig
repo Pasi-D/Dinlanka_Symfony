@@ -10,6 +10,22 @@
             height: 400px;  /* The height is 400 pixels */
             width: 100%;  /* The width is the width of the web page */
         }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
 {% endblock %}
 
@@ -37,8 +53,28 @@
     <div id="map"></div>
 
     <div>
-        <h5>Your cargo was last located at {{ current_loc }}</h5>
+        <h4>Your cargo was last located at {{ current_loc }}</h4>
     </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+
+            {% for data in history_data  %}
+                <tr>
+                    <td>{{ (((((data | split(','))[0] | split('['))[1]) | split(': '))[1] ) }}</td>
+                    <td>{{ (((data | split(','))[1]) | split(': '))[1]  }}</td>
+                    <td>{{ ((((data | split(','))[2]) | split(': '))[1]) | split(']')[0] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <hr>
 
     <script>
         // Initialize and add the map
@@ -59,4 +95,5 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCltWRQRrRFBsRh9WUQ53KVbj3Nm6xc6s&callback=initMap">
     </script>
+
 {% endblock %}
