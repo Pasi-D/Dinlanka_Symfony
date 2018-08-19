@@ -8,7 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadAdminData1 implements FixtureInterface, ContainerAwareInterface {
+class LoadAdminData implements FixtureInterface, ContainerAwareInterface {
 
     private $container;
     /**
