@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your Shipment | www.dinlanka.com | Service Beyond Borders {% endblock %}
+
+{% block body %}
+
+    <section class="page-title-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header-wrap">
+                        <div class="page-header">
+                            <h1>DinLanka Logistics Order Tracking</h1>
+                        </div>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a></li>
+                            <li class="active">Shipment Location</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="margin-left: 320px; margin-top: 50px">
+        <h4>{{ message }}</h4>
+    </div>
+
+{% endblock %}

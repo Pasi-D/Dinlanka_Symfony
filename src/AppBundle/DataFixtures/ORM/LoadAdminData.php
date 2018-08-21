@@ -8,7 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadAdminData1 implements FixtureInterface, ContainerAwareInterface {
+class LoadAdminData implements FixtureInterface, ContainerAwareInterface {
 
     private $container;
     /**
@@ -19,7 +19,7 @@ class LoadAdminData1 implements FixtureInterface, ContainerAwareInterface {
     public function load(ObjectManager $manager)
     {
         $fosuser = new Fosuser();
-        $fosuser->setUsername('admin2');
+        $fosuser->setUsername('admin');
         #$fosuser->setUsernameCanonical('admin2')
         $fosuser->setEmail('dinlanka@admin.com');
         #$fosuser->setEmailCanonical('dinlanka@admin.com')

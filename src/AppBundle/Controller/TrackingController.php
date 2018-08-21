@@ -66,21 +66,22 @@ class TrackingController extends Controller
 
 
         $track_type = substr($track_id, 0, 3);
-
+    
         /*
          * If $track_type is DIN search from mapping table should be done to get the global tracking id
          * else normal search
          * */
+
         if ($track_type === 'DIN'){
             /*
              * Depending on tp_mode first db search must focus on relevant mapping table
-             * i.e either on dinlanka_sea_freight or dinlanka_air_freight
+             * i.e either on DinLankaSeaFreight or DinLankaAirFreight
              * */
             if ($tp_mode === 'Air Freight'){
 
-                $air_din_map = $em->getRepository('AppBundle:Dinlanka_air_freight')->findBy(
+                $air_din_map = $em->getRepository('AppBundle:DinLankaAirFreight')->findBy(
                     array(
-                        'dinlankaAirFreightBillNo' => $track_id
+                        'dinlankaAirfreightBillNumber' => $track_id
                     )
                 );
 
@@ -89,136 +90,234 @@ class TrackingController extends Controller
                     die();
                 }else {
 
-                $global_id = $propertyAccessor->getValue($air_din_map, '[0].airFreightBillNo');
+                $global_id = $propertyAccessor->getValue($air_din_map, '[0].airFreightBillNumber');
 
-                $freight = $this->getDoctrine()->getRepository('AppBundle:Air_Freight')->findBy(
-                    array(
-                        'airFreightBillNo' => $global_id
-                    )
-                );
+                $delivery_status = $propertyAccessor->getValue($air_din_map, '[0].delivered');
 
-                $current_loc = $propertyAccessor->getValue($freight, '[0].currentStatus');
+                /*
+                 * If $delivery_status is true then not displaying the tracking data
+                 * */
 
+                if ($delivery_status){
 
+                    $message = "This shipment has been delivered - No tracking data can be displayed";
 
-                $latlong = $this->lookup($current_loc);
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
 
-                dump($latlong);
+                }else {
+                    $freight = $this->getDoctrine()->getRepository('AppBundle:AirFreight')->findBy(
+                        array(
+                            'airFreightBillNumber' => $global_id
+                        )
+                    );
 
-                return $this->render('dinlanka/track-preview.html.twig', [
-                    'latlong' => $latlong,
-                    'current_loc' => $current_loc
-                ]);
-                
+                    $history = $propertyAccessor->getValue($freight, '[0].history');
+
+                    $history_data = explode(" || ", $history);
+
+                    $current_loc = $propertyAccessor->getValue($freight, '[0].currentLocation');
+
+                    $latlong = $this->lookup($current_loc);
+
+                    return $this->render('dinlanka/track-preview.html.twig', [
+                        'latlong' => $latlong,
+                        'current_loc' => $current_loc,
+                        'history_data' => $history_data
+                    ]);
+                }
+
                 }
             }elseif ($tp_mode === 'Ocean Freight'){
-                $sea_din_map = $em->getRepository('AppBundle:Dinlanka_sea_freight')->findBy(
+                $sea_din_map = $em->getRepository('AppBundle:DinLankaSeaFreight')->findBy(
                     array(
-                        'dinlankaSeaFreightBillNo' => $track_id
+                        'dinlankaSeafreightBillNumber' => $track_id
                     )
                 );
 
                 if ($sea_din_map == null) {
-                    var_export('The tracking id you entered is not available or incorrec please retry again');
-                    die();
+
+                    $message = "The tracking id you entered is not available or incorrect please retry again";
+
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
+
                 }else {
 
 
-                $global_id = $propertyAccessor->getValue($sea_din_map, '[0].seaFreightBillNo');
+                $global_id = $propertyAccessor->getValue($sea_din_map, '[0].seaFreightBillNumber');
 
+                $delivery_status = $propertyAccessor->getValue($sea_din_map, '[0].delivered');
 
-                $freight = $this->getDoctrine()->getRepository('AppBundle:Sea_Freight')->findBy(
-                    array(
-                        'seaFreightBillNo' => $global_id
-                    )
-                );
-                $current_loc = $propertyAccessor->getValue($freight, '[0].currentStatus');
+                if ($delivery_status){
 
-                //debug curretn_loc
-                dump($current_loc);
+                    $message = "This shipment has been delivered - No tracking data can be displayed";
 
-                $latlong = $this->lookup($current_loc);
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
+                }else{
+                    $freight = $this->getDoctrine()->getRepository('AppBundle:SeaFreight')->findBy(
+                        array(
+                            'seaFreightBillNumber' => $global_id
+                        )
+                    );
 
-                //debug_latlong
-                dump($latlong);
+                    $history = $propertyAccessor->getValue($freight, '[0].history');
 
-                return $this->render('dinlanka/track-preview.html.twig', [
-                    'latlong' => $latlong,
-                    'current_loc' => $current_loc
-                ]);
+                    $history_data = explode(" || ", $history);
+
+                    $current_loc = $propertyAccessor->getValue($freight, '[0].currentLocation');
+
+                    $latlong = $this->lookup($current_loc);
+
+                    return $this->render('dinlanka/track-preview.html.twig', [
+                        'latlong' => $latlong,
+                        'current_loc' => $current_loc,
+                        'history_data' => $history_data
+                    ]);
+                }
 
                 }
 
             }else {
                 //UPB Cargo
 
-                var_export('You obviously called a tracking for UPB cargo which is currently unavailable');
-                die();
+                $message = "You obviously called a tracking for UPB cargo which is currently unavailable";
+
+                return $this->render('dinlanka/track-fail.html.twig', [
+                    'message' => $message
+                ]);
 
             }
 
         }else{
+            /*
+             * If searched using tracking ID (Not DIN)
+             * */
 
             if ($tp_mode === 'Air Freight'){
 
-                $freight = $this->getDoctrine()->getRepository('AppBundle:Air_Freight')->findBy(
+                $freight = $this->getDoctrine()->getRepository('AppBundle:AirFreight')->findBy(
                     array(
-                        'airFreightBillNo' => $track_id
+                        'airFreightBillNumber' => $track_id
+                    )
+                );
+
+                /*
+                 * Corresponding din_air_mapping
+                 * */
+                $air_din_map = $em->getRepository('AppBundle:DinLankaAirFreight')->findBy(
+                    array(
+                        'airFreightBillNumber' => $track_id
                     )
                 );
 
                 if ($freight == null) {
-                    var_export('The tracking id you entered is not available or incorrect please retry again');
-                    die();
+
+                    $message = "The tracking id you entered is not available or incorrect please retry again";
+
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
                 }else {
 
+                $delivery_status = $propertyAccessor->getValue($air_din_map, '[0].delivered');
 
-                $current_loc = $propertyAccessor->getValue($freight, '[0].currentStatus');
+                if ($delivery_status){
 
-                $latlong = $this->lookup($current_loc);
+                    $message = "This shipment has been delivered - No tracking data can be displayed";
 
-                return $this->render('dinlanka/track-preview.html.twig', [
-                    'latlong' => $latlong,
-                    'current_loc' => $current_loc
-                ]);
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
+                }else{
+                    $history = $propertyAccessor->getValue($freight, '[0].history');
+
+                    $history_data = explode(" || ", $history);
+
+                    $current_loc = $propertyAccessor->getValue($freight, '[0].currentLocation');
+
+                    $latlong = $this->lookup($current_loc);
+
+                    return $this->render('dinlanka/track-preview.html.twig', [
+                        'latlong' => $latlong,
+                        'current_loc' => $current_loc,
+                        'history_data' => $history_data
+                    ]);
+                }
+
                 }
             }elseif ($tp_mode === 'Ocean Freight'){
 
-                $freight = $this->getDoctrine()->getRepository('AppBundle:Sea_Freight')->findBy(
+                $freight = $this->getDoctrine()->getRepository('AppBundle:SeaFreight')->findBy(
                     array(
-                        'seaFreightBillNo' => $track_id
+                        'seaFreightBillNumber' => $track_id
+                    )
+                );
+
+                /*
+                 * Corresponding sea_din_mapping
+                 * */
+
+                $sea_din_map = $em->getRepository('AppBundle:DinLankaSeaFreight')->findBy(
+                    array(
+                        'seaFreightBillNumber' => $track_id
                     )
                 );
 
                 if ($freight == null) {
-                    var_export('The tracking id you entered is not available or incorrect please retry again');
-                    die();
+                    $message = "The tracking id you entered is not available or incorrect please retry again";
+
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
                 }else {
-                $current_loc = $propertyAccessor->getValue($freight, '[0].currentStatus');
 
-                $latlong = $this->lookup($current_loc);
+                $delivery_status = $propertyAccessor->getValue($sea_din_map, '[0].delivered');
 
-                return $this->render('dinlanka/track-preview.html.twig', [
-                    'latlong' => $latlong,
-                    'current_loc' => $current_loc
-                ]);
+                if ($delivery_status){
+
+                    $message = "This shipment has been delivered - No tracking data can be displayed";
+
+                    return $this->render('dinlanka/track-fail.html.twig', [
+                        'message' => $message
+                    ]);
+
+                }else{
+                    $history = $propertyAccessor->getValue($freight, '[0].history');
+
+                    $history_data = explode(" || ", $history);
+
+                    $current_loc = $propertyAccessor->getValue($freight, '[0].currentLocation');
+
+                    $latlong = $this->lookup($current_loc);
+
+                    return $this->render('dinlanka/track-preview.html.twig', [
+                        'latlong' => $latlong,
+                        'current_loc' => $current_loc,
+                        'history_data' => $history_data
+                    ]);
+                }
                 }
             }else{
                 //UPB Cargo
 
-                var_export('You obviously called a tracking for UPB cargo which is currently unavailable');
-                die();
+                $message = "You obviously called a tracking for UPB cargo which is currently unavailable";
+
+                return $this->render('dinlanka/track-fail.html.twig', [
+                    'message' => $message
+                ]);
+
             }
-
-
         }
-
-
     }
 
     public function lookup($string){
         // google map geocode api url
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$string}&key=AIzaSyBCltWRQRrRFBsRh9WUQ53KVbj3Nm6xc6s";//we are getting the response in json
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($string)."&key=AIzaSyBCltWRQRrRFBsRh9WUQ53KVbj3Nm6xc6s";//we are getting the response in json &key=AIzaSyBCltWRQRrRFBsRh9WUQ53KVbj3Nm6xc6s
         // get the json response
         $resp_json = file_get_contents($url);
         // decode the json
@@ -236,12 +335,5 @@ class TrackingController extends Controller
             $val = 'Geocode API failure';
             return $val;
         }
-
-
-
     }
-
-
-
-
 }
