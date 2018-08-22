@@ -32,5 +32,11 @@ class AdminController extends BaseAdminController
 
     }
 
+    #message sending capability - via twilio
+    public function messageAction()
+    {
+        return $this->redirectToRoute('indexpage');
+    }
+
 }
 
