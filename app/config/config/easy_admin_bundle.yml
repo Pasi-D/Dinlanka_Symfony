@@ -28,8 +28,11 @@ easy_admin:
               class: AppBundle\Entity\AirFreight
               list:
                   title: "Air Freight"
+                  actions: ['message']
               form:
                   title: "Air Freight"
+              
+                  
       
 
         DinLankaAirFreight_Orders:
