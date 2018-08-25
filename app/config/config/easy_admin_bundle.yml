@@ -21,7 +21,7 @@ easy_admin:
                         - roles
                         - enabled
                         - { property: 'plainPassword', type: 'text', type_options: { required: false } }
-                        - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                        - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_AGENT': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         
         AirFreight_Orders:
               label: "Air Freight"
@@ -85,11 +85,11 @@ easy_admin:
         brand_color: 'rgba(241, 85, 27, 0.75)'
 
         menu:
-            - {entity: 'User', icon: 'user' }
-            - {entity: AirFreight_Orders, icon: 'plane'}
-            - {entity: DinLankaAirFreight_Orders, icon: 'plane'}
-            - {entity: SeaFreight_Orders, icon: 'ship'}
-            - {entity: DinLankaSeaFreight_Orders, icon: 'ship'}
+            - {entity: 'User', icon: 'user',require_permission: ["ROLE_ADMIN"] }
+            - {entity: AirFreight_Orders, icon: 'plane',default: true, require_permission: ["ROLE_USER"]}
+            - {entity: DinLankaAirFreight_Orders, icon: 'plane',  require_permission: ["ROLE_USER"]}
+            - {entity: SeaFreight_Orders, icon: 'ship',require_permission: ["ROLE_USER"]}
+            - {entity: DinLankaSeaFreight_Orders, icon: 'ship',require_permission: ["ROLE_USER"]}
             #- {entity: Containers, icon: 'archive'}
             #- {entity: UPB, icon: 'archive'}
             #- {entity: DinlankaUpb, icon: 'archive'}
