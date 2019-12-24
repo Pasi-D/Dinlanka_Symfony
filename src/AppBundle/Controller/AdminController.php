@@ -63,11 +63,11 @@ class AdminController extends BaseAdminController
 
 
         // Your Account SID and Auth Token from twilio.com/console
-        $account_sid = 'AC42d977276b610278f29541e5d72cf344';
-        $auth_token = '5b7c0c04ce5cd95a6c175eff51c3b80a';
+        $account_sid = '#################################';
+        $auth_token = '##################################';
 
         // A Twilio number you own with SMS capabilities
-        $twilio_number = "+16175397943";
+        $twilio_number = "####################";
 
         $client = new Client($account_sid, $auth_token);
 
